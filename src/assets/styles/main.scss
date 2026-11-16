@@ -1,20 +1,44 @@
 /**
- * Use this file to import partials.
- * Do not include SCSS code in this file.
+ * MAIN
+ *
+ * Use this file to import partials only. Do not include SCSS code here.
+ * Partials are imported in ITCSS order, from generic and low-specificity
+ * to explicit and high-specificity. Class names follow BEMIT: each class
+ * carries the namespace of its layer (o-, c-, u-).
+ *
+ * CONTENTS
+ *
+ * SETTINGS
+ * Variables............Design tokens as Sass variables.
+ *
+ * TOOLS
+ * (none yet)
+ *
+ * VENDOR
+ * (none yet)
+ *
+ * GENERIC
+ * (none yet)
+ *
+ * ELEMENTS
+ * (none yet)
+ *
+ * OBJECTS
+ * (none yet)
+ *
+ * COMPONENTS
+ * (none yet)
+ *
+ * UTILITIES
+ * (none yet)
  */
 
-/**
- * Import dependencies
- */
-@use "dependencies";
 
-/**
- * Import layouts
- * It's a best practice to use a different partial for each page
- */
 
-@use "layouts/home";
 
-/**
- * Do NOT include anything else in this file!
- */
+
+/*------------------------------------*\
+  #SETTINGS
+\*------------------------------------*/
+
+@use "settings/variables";
