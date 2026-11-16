@@ -2,5 +2,86 @@
   "extends": [
     "stylelint-config-recommended-scss",
     "stylelint-config-recess-order"
+  ],
+  "rules": {
+    "selector-max-id": [
+      0,
+      { "message": "Avoid ID selectors. Use a BEMIT class instead." }
+    ],
+    "selector-class-pattern": [
+      "^(o|c|u|is|has)-[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+      {
+        "resolveNestedSelectors": true,
+        "message": "Use BEMIT naming: a layer namespace (o-, c-, u-) or a state prefix (is-, has-), then block__element--modifier."
+      }
+    ],
+    "selector-max-specificity": [
+      "0,2,0",
+      {
+        "ignoreSelectors": ["/^__/", "/^--/"],
+        "message": "Keep specificity low: use a single BEMIT class instead of combining selectors."
+      }
+    ],
+    "max-nesting-depth": [
+      2,
+      {
+        "ignoreAtRules": ["media", "container", "supports"],
+        "message": "Avoid nesting deeper than 2 levels. Use a BEM element or modifier instead."
+      }
+    ],
+    "declaration-no-important": [
+      true,
+      { "message": "Avoid !important. Use it only in the utilities layer." }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/assets/styles/generic/**/*.scss",
+        "src/assets/styles/elements/**/*.scss"
+      ],
+      "rules": {
+        "selector-max-class": [
+          0,
+          { "message": "The generic and elements layers only style bare HTML elements. Move class selectors to objects or components." }
+        ]
+      }
+    },
+    {
+      "files": ["src/assets/styles/objects/**/*.scss"],
+      "rules": {
+        "selector-class-pattern": [
+          "^(o-[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?|(is|has)-[a-z0-9]+(-[a-z0-9]+)*)$",
+          {
+            "resolveNestedSelectors": true,
+            "message": "Classes in the objects layer must start with o- (states may use is- or has-)."
+          }
+        ],
+        "selector-max-type": [0, { "message": "Avoid element selectors. Use a BEMIT class instead." }]
+      }
+    },
+    {
+      "files": ["src/assets/styles/components/**/*.scss"],
+      "rules": {
+        "selector-class-pattern": [
+          "^(c-[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?|(is|has)-[a-z0-9]+(-[a-z0-9]+)*)$",
+          {
+            "resolveNestedSelectors": true,
+            "message": "Classes in the components layer must start with c- (states may use is- or has-)."
+          }
+        ],
+        "selector-max-type": [0, { "message": "Avoid element selectors. Use a BEMIT class instead." }]
+      }
+    },
+    {
+      "files": ["src/assets/styles/utilities/**/*.scss"],
+      "rules": {
+        "selector-class-pattern": [
+          "^u-[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+          { "message": "Classes in the utilities layer must start with u- and have no elements or modifiers." }
+        ],
+        "declaration-no-important": null
+      }
+    }
   ]
 }
