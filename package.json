@@ -1,8 +1,7 @@
 {
-  "name": "uoc-boilerplate",
-  "version": "3.14.0",
-  "private": true,
-  "description": "Boilerplate for Advanced HTML/CSS Tools UOC students",
+"name": "uoc-hcss-2-pec2",
+"version": "1.0.0",
+"description": "Website for a literary festival and short story prize. UOC, HTML and CSS Tools II, PEC 2.",
   "scripts": {
     "parcel:serve": "parcel -p 8123 --target web",
     "parcel:build": "parcel build --target web --no-source-maps --no-cache",
@@ -22,12 +21,12 @@
     }
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uoc-advanced-html-css/uoc-boilerplate.git"
+  "type": "git",
+  "url": "git+https://github.com/lcaballerogar/uoc-hcss-2-pec2.git"
   },
   "author": {
-    "name": "Jordi Tarrida",
-    "email": "jorditarrida@uoc.edu"
+    "name": "Laura Caballero García",
+    "email": "lcaballerogar@uoc.edu"
   },
   "license": "MIT",
   "bugs": {
