@@ -30,9 +30,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uoc-advanced-html-css/uoc-boilerplate/issues"
+    "url": "https://github.com/lcaballerogar/uoc-hcss-2-pec2/issues"
   },
-  "homepage": "https://github.com/uoc-advanced-html-css/uoc-boilerplate#readme",
+  "homepage": "https://uoc-hcss-2-pec2.netlify.app/",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.16.4",
     "autoprefixer": "^10.5.5",
