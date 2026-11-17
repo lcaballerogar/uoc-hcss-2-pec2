@@ -1,14 +1,20 @@
 <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
 
-<header>
-  <a href="./index.html">Annotation</a>
+<header class="c-header">
+  <nav class="navbar navbar-expand-md" aria-label="Main">
+    <a class="navbar-brand c-header__brand" href="./index.html">Annotation</a>
 
-  <nav aria-label="Main">
-    <ul>
-      <li><a href="./speakers.html" aria-current="{{ page === 'speakers' ? 'page' : 'false' }}">Speakers</a></li>
-      <li><a href="./programme.html" aria-current="{{ page === 'programme' ? 'page' : 'false' }}">Programme</a></li>
-      <li><a href="./article.html" aria-current="{{ page === 'article' ? 'page' : 'false' }}">Blog</a></li>
-      <li><a href="#">Register</a></li>
-    </ul>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main-nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link c-header__link c-header__link--speakers" href="./speakers.html" aria-current="{{ page === 'speakers' ? 'page' : 'false' }}">Speakers</a></li>
+        <li class="nav-item"><a class="nav-link c-header__link c-header__link--programme" href="./programme.html" aria-current="{{ page === 'programme' ? 'page' : 'false' }}">Programme</a></li>
+        <li class="nav-item"><a class="nav-link c-header__link c-header__link--blog" href="./article.html" aria-current="{{ page === 'article' ? 'page' : 'false' }}">Blog</a></li>
+        <li class="nav-item"><a class="btn c-header__cta" href="#">Register for the event</a></li>
+      </ul>
+    </div>
   </nav>
 </header>

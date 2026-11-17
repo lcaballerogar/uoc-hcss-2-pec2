@@ -24,8 +24,12 @@ $color-neutral-600: #737373;
 $color-neutral-700: #535353;
 $color-neutral-950: #121212;
 
-// Primitives: color (brand scale of the design system)
+// Primitives: color (brand scales of the design system)
+$color-pink-500: #f0f;
+$color-yellow-500: #ffea00;
+$color-blue-400: #2e8fff;
 $color-blue-800: #003775;
+$color-brown-800: #7d5b01;
 
 // Primitives: typography
 $font-family-sans: "Switzer", system-ui, sans-serif;
@@ -40,8 +44,12 @@ $font-weight-regular: 400;
 $line-height-tight: 1.2;
 
 // Primitives: spacing: n × 4px
+$spacing-xs: 0.5rem;      // 8px
 $spacing-s: 1rem;         // 16px
+$spacing-m: 1.5rem;       // 24px
 
+// Primitives: sizes: n × 4px
+$size-10: 2.5rem;         // 40px
 
 
 
@@ -58,7 +66,24 @@ $color-text-primary: $color-neutral-950;
 $color-text-secondary: $color-neutral-600;           // on white only: 4.74:1
 $color-text-secondary-on-muted: $color-neutral-700;  // on grey 100/200: 6.45:1 and 5.72:1
 
+
+$color-text-inverse: $color-neutral-0;
+
+// Color: accents, one per section of the site
+$color-accent-speakers: $color-yellow-500;    // with text-primary: 15.18:1
+$color-accent-programme: $color-blue-400;     // with text-primary: 5.79:1
+$color-accent-blog: $color-brown-800;         // with text-inverse: 6.23:1
+
+// Color: call to action
+$color-cta-background: $color-pink-500;       // with text-primary: 5.97:1
+$color-cta-text: $color-text-primary;
+
 $color-focus: $color-blue-800;
 
 // Spacing
 $spacing-paragraph: $spacing-s;
+$spacing-control-block: $spacing-xs;
+$spacing-control-inline: $spacing-m;
+
+// Sizes
+$size-control-min-height: $size-10;

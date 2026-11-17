@@ -1,0 +1,62 @@
+/*------------------------------------*\
+  #HEADER
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Site header and main navigation, built on Bootstrap's navbar.
+ * Bootstrap classes give structure and the collapse behaviour; c-header
+ * classes are the hooks for project styles.
+ *
+ * 1. Each link sets its section color in local custom properties.
+ *    One shared rule applies them, so the state is defined once.
+ * 2. The current page is marked with aria-current, not with Bootstrap's
+ *    .active class, so the state is the same for CSS and assistive tech.
+ *    It looks the same as hover.
+ * 3. Same box for navigation links and the call to action: 40px minimum
+ *    height and the label centered. min-block-size, not block-size, so the
+ *    box can grow if the text wraps or is zoomed instead of clipping it.
+ *    Bootstrap buttons use a taller line height (1.5) than the page (1.2);
+ *    without resetting it, the call to action would measure 42px.
+ */
+
+.c-header__link,
+.c-header__cta { /* [3] */
+  display: flex;
+  align-items: center;
+  min-block-size: variables.$size-control-min-height;
+  padding-block: variables.$spacing-control-block;
+  padding-inline: variables.$spacing-control-inline;
+  line-height: variables.$line-height-tight;
+}
+
+.c-header__link {
+  --link-accent: transparent; /* [1] */
+  --link-accent-text: #{variables.$color-text-primary}; /* [1] */
+
+  &:hover,
+  &[aria-current="page"] { /* [2] */
+    color: var(--link-accent-text);
+    background-color: var(--link-accent);
+  }
+
+  &--speakers {
+    --link-accent: #{variables.$color-accent-speakers};
+  }
+
+  &--programme {
+    --link-accent: #{variables.$color-accent-programme};
+  }
+
+  &--blog {
+    --link-accent: #{variables.$color-accent-blog};
+    --link-accent-text: #{variables.$color-text-inverse};
+  }
+}
+
+.c-header__cta { /* [3] */
+  color: variables.$color-cta-text;
+  background-color: variables.$color-cta-background;
+  border-color: variables.$color-cta-background;
+}

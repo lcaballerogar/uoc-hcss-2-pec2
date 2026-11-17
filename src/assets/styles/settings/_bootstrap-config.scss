@@ -13,6 +13,9 @@
  * 1. Square corners on every component, as in the designs.
  * 2. Bootstrap computes tints and shades of this color with Sass functions,
  *    so it must be an sRGB color (hex or rgb), not oklch().
+ * 4. Navbar links and brand use primary text in every state. On hover and
+ *    for the current page, the header component changes the background.
+ * 5. The header sits flush with the top and sides of the viewport.
  */
 
 $config: (
@@ -22,4 +25,10 @@ $config: (
   "body-color": variables.$color-text-primary,
   "body-bg": variables.$color-background-primary,
   "headings-font-weight": variables.$font-weight-regular,
+  "focus-ring-width": 0, /* [3] */
+  "nav-link-focus-box-shadow": none, /* [3] */
+  "navbar-padding-y": 0, /* [5] */
+  "navbar-light-color": variables.$color-text-primary, /* [4] */
+  "navbar-light-hover-color": variables.$color-text-primary, /* [4] */
+  "navbar-light-active-color": variables.$color-text-primary, /* [4] */
 );

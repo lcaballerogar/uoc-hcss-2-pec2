@@ -40,7 +40,7 @@
  * (none yet)
  *
  * COMPONENTS
- * (none yet)
+ * Header...............Site header and main navigation (Bootstrap navbar).
  *
  * UTILITIES
  * (none yet)
@@ -105,4 +105,16 @@
   @include meta.load-css("elements/headings");
   @include meta.load-css("elements/paragraphs");
   @include meta.load-css("elements/links");
+}
+
+
+
+
+
+/*------------------------------------*\
+  #COMPONENTS
+\*------------------------------------*/
+
+@layer components {
+  @include meta.load-css("components/header");
 }
