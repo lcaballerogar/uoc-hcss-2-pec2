@@ -1,0 +1,27 @@
+/*------------------------------------*\
+  #LINKS
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Links and visible keyboard focus.
+ *
+ * 1. Links take the color of their context: the designs use black or grey
+ *    underlined links, never a separate link color.
+ * 2. Thin underline, slightly away from the baseline, for readability.
+ * 3. Dark blue outline (blue 800): at least 3:1 on white, the greys and
+ *    every light brand color, including the brand blue itself
+ *    (WCAG 2.2, 1.4.11). Dark backgrounds will need their own focus token.
+ */
+
+a {
+  color: inherit; /* [1] */
+  text-decoration-thickness: 1px; /* [2] */
+  text-underline-offset: 0.15em; /* [2] */
+}
+
+:focus-visible {
+  outline: 2px solid variables.$color-focus; /* [3] */
+  outline-offset: 2px;
+}

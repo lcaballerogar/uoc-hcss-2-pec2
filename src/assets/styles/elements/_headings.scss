@@ -1,0 +1,19 @@
+/*------------------------------------*\
+  #HEADINGS
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Heading sizes and weight. Line height is inherited from body.
+ */
+
+h1 {
+  font-size: variables.$font-size-4xl;
+  font-weight: variables.$font-weight-regular;
+}
+
+h2 {
+  font-size: variables.$font-size-xl;
+  font-weight: variables.$font-weight-regular;
+}

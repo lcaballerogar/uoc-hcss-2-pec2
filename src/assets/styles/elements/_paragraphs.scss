@@ -1,0 +1,18 @@
+/*------------------------------------*\
+  #PARAGRAPHS
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Reading text. Margins in a single direction (bottom), as in PEC 01.
+ *
+ * 1. Secondary text on the white page background (4.74:1). Components on
+ *    grey surfaces use $color-text-secondary-on-muted instead.
+ */
+
+p {
+  margin-top: 0;
+  margin-bottom: variables.$spacing-paragraph;
+  color: variables.$color-text-secondary; /* [1] */
+}

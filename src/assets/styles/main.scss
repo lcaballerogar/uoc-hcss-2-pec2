@@ -21,7 +21,10 @@
  * Font-face............Self-hosted Switzer and Sentient variable fonts.
  *
  * ELEMENTS
- * (none yet)
+ * Page.................Base font size, typography and colors for html and body.
+ * Headings.............h1 and h2 sizes and weight.
+ * Paragraphs...........Reading text color and spacing.
+ * Links................Inherited link color and visible keyboard focus.
  *
  * OBJECTS
  * (none yet)
@@ -52,3 +55,17 @@
 \*------------------------------------*/
 
 @use "generic/font-face";
+
+
+
+
+
+
+/*------------------------------------*\
+  #ELEMENTS
+\*------------------------------------*/
+
+@use "elements/page";
+@use "elements/headings";
+@use "elements/paragraphs";
+@use "elements/links";

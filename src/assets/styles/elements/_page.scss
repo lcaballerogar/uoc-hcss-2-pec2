@@ -1,0 +1,26 @@
+/*------------------------------------*\
+  #PAGE
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Base typography and colors for the whole document.
+ *
+ * 1. Respect the user's browser font size setting: 100% = their default.
+ * 2. Typography and colors go on body, not html. Bootstrap's Reboot styles
+ *    body directly, so values set only on html would be overridden there.
+ * 3. Never fake bold or italic styles that the font files do not include.
+ */
+
+html {
+  font-size: 100%; /* [1] */
+}
+
+body { /* [2] */
+  font-family: variables.$font-family-sans;
+  font-synthesis: none; /* [3] */
+  line-height: variables.$line-height-tight;
+  color: variables.$color-text-primary;
+  background-color: variables.$color-background-primary;
+}
