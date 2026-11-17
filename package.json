@@ -1,7 +1,7 @@
 {
-"name": "uoc-hcss-2-pec2",
-"version": "1.0.0",
-"description": "Website for a literary festival and short story prize. UOC, HTML and CSS Tools II, PEC 2.",
+  "name": "uoc-hcss-2-pec2",
+  "version": "1.0.0",
+  "description": "Website for a literary festival and short story prize. UOC, HTML and CSS Tools II, PEC 2.",
   "scripts": {
     "parcel:serve": "parcel -p 8123 --target web",
     "parcel:build": "parcel build --target web --no-source-maps --no-cache",
@@ -22,8 +22,8 @@
     }
   },
   "repository": {
-  "type": "git",
-  "url": "git+https://github.com/lcaballerogar/uoc-hcss-2-pec2.git"
+    "type": "git",
+    "url": "git+https://github.com/lcaballerogar/uoc-hcss-2-pec2.git"
   },
   "author": {
     "name": "Laura Caballero García",
@@ -42,6 +42,10 @@
     "postcss-preset-env": "^11.5.1",
     "posthtml-include": "^2.0.1",
     "rimraf": "^6.1.3",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "stylelint": "^17.16.0",
+    "stylelint-config-recess-order": "^7.10.0",
+    "stylelint-config-recommended-scss": "^17.0.1",
+    "stylelint-scss": "^7.5.0"
   }
 }
