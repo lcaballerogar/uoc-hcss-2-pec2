@@ -41,6 +41,7 @@
  *
  * COMPONENTS
  * Header...............Site header and main navigation (Bootstrap navbar).
+ * Footer...............Site footer and its components.
  *
  * UTILITIES
  * (none yet)
@@ -117,4 +118,5 @@
 
 @layer components {
   @include meta.load-css("components/header");
+  @include meta.load-css("components/footer");
 }

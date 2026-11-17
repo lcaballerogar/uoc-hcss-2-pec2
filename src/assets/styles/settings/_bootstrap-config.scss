@@ -16,6 +16,9 @@
  * 4. Navbar links and brand use primary text in every state. On hover and
  *    for the current page, the header component changes the background.
  * 5. The header sits flush with the top and sides of the viewport.
+ * 6. Breakpoints come from the design tokens, so the project and Bootstrap
+ *    share one source. In rem, media queries also respond to the font size
+ *    the user sets in the browser.
  */
 
 $config: (
@@ -31,4 +34,12 @@ $config: (
   "navbar-light-color": variables.$color-text-primary, /* [4] */
   "navbar-light-hover-color": variables.$color-text-primary, /* [4] */
   "navbar-light-active-color": variables.$color-text-primary, /* [4] */
+    "grid-breakpoints": (
+    "xs": 0,
+    "sm": variables.$breakpoint-sm,
+    "md": variables.$breakpoint-md,
+    "lg": variables.$breakpoint-lg,
+    "xl": variables.$breakpoint-xl,
+    "xxl": variables.$breakpoint-xxl,
+  ), /* [6] */
 );

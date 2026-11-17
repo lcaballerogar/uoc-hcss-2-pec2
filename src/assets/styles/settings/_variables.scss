@@ -20,6 +20,7 @@
 
 // Primitives: color (neutral scale of the design system)
 $color-neutral-0: #fff;
+$color-neutral-200: #dedede;
 $color-neutral-600: #737373;
 $color-neutral-700: #535353;
 $color-neutral-950: #121212;
@@ -51,6 +52,13 @@ $spacing-m: 1.5rem;       // 24px
 // Primitives: sizes: n × 4px
 $size-10: 2.5rem;         // 40px
 
+// Primitives: breakpoints (Bootstrap's values, in rem)
+$breakpoint-sm: 36rem;    // 576px
+$breakpoint-md: 48rem;    // 768px
+$breakpoint-lg: 62rem;    // 992px
+$breakpoint-xl: 75rem;    // 1200px
+$breakpoint-xxl: 87.5rem; // 1400px
+
 
 
 
@@ -60,6 +68,8 @@ $size-10: 2.5rem;         // 40px
 
 // Color: background
 $color-background-primary: $color-neutral-0;
+$color-background-muted: $color-neutral-200;
+$color-background-inverse: $color-neutral-950;
 
 // Color: text
 $color-text-primary: $color-neutral-950;
@@ -78,12 +88,14 @@ $color-accent-blog: $color-brown-800;         // with text-inverse: 6.23:1
 $color-cta-background: $color-pink-500;       // with text-primary: 5.97:1
 $color-cta-text: $color-text-primary;
 
-$color-focus: $color-blue-800;
+$color-focus: $color-blue-800;               // on white: 11.65:1
+$color-focus-on-dark: $color-blue-400;       // on neutral 950: 5.79:1
 
 // Spacing
 $spacing-paragraph: $spacing-s;
 $spacing-control-block: $spacing-xs;
 $spacing-control-inline: $spacing-m;
+$spacing-footer: $spacing-s;
 
 // Sizes
 $size-control-min-height: $size-10;

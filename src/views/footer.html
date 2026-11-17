@@ -1,7 +1,7 @@
-<footer>
-  <section aria-labelledby="newsletter-title">
-    <h2 id="newsletter-title">Stay in the margins</h2>
-    <p>One email a month with festival news, new speakers and writing tips. No spam, ever.</p>
+<footer class="c-footer">
+  <section class="c-footer__newsletter" aria-labelledby="newsletter-title">
+    <h2 class="c-footer__title" id="newsletter-title">Stay in the margins</h2>
+    <p class="c-footer__intro">One email a month with festival news, new speakers and writing tips. No spam, ever.</p>
 
     <form action="#" method="post">
       <label for="newsletter-email">Email*</label>
@@ -17,27 +17,29 @@
     </form>
   </section>
 
-  <p>Annotation is Alvera's festival of stories: four days of free talks, workshops and readings, and a short story prize open to new voices. Every April, from the library to the old tobacco factory.</p>
+  <p class="c-footer__summary">Annotation is Alvera's festival of stories: four days of free talks, workshops and readings, and a short story prize open to new voices. Every April, from the library to the old tobacco factory.</p>
 
-  <nav aria-label="Footer">
-    <ul>
-      <li><a href="./speakers.html">Speakers</a></li>
-      <li><a href="./programme.html">Programme</a></li>
-      <li><a href="./article.html">Blog</a></li>
-      <li><a href="#">Register for the event</a></li>
+  <div class="c-footer__info">
+    <nav class="c-footer__nav" aria-label="Footer">
+      <ul class="c-footer__list">
+        <li><a class="c-footer__link" href="./speakers.html">Speakers</a></li>
+        <li><a class="c-footer__link" href="./programme.html">Programme</a></li>
+        <li><a class="c-footer__link" href="./article.html">Blog</a></li>
+        <li><a class="c-footer__link" href="#">Register for the event</a></li>
+      </ul>
+    </nav>
+
+    <ul class="c-footer__list c-footer__social" aria-label="Social media">
+      <li><a class="c-footer__link" href="https://www.instagram.com/">Instagram</a></li>
+      <li><a class="c-footer__link" href="https://bsky.app/">Bluesky</a></li>
+      <li><a class="c-footer__link" href="https://www.facebook.com/">Facebook</a></li>
     </ul>
-  </nav>
 
-  <ul aria-label="Social media">
-    <li><a href="https://www.instagram.com/">Instagram</a></li>
-    <li><a href="https://bsky.app/">Bluesky</a></li>
-    <li><a href="https://www.facebook.com/">Facebook</a></li>
-  </ul>
+    <address class="c-footer__contact">
+      Contact us<br />
+      <a class="c-footer__link" href="mailto:hello@annotation-alvera.example">hello@annotation-alvera.example</a>
+    </address>
 
-  <address>
-    Contact us<br />
-    <a href="mailto:hello@annotation-alvera.com">hello@annotation-alvera.com</a>
-  </address>
-
-  <p><small>&copy; 2027 Annotation — Alvera Literary Days. Organised by Alvera City Council.</small></p>
+    <p class="c-footer__legal"><small>&copy; 2027 Annotation — Alvera Literary Days. Organised by Alvera City Council.</small></p>
+  </div>
 </footer>

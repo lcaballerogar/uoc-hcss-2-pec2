@@ -1,0 +1,108 @@
+/*------------------------------------*\
+  #FOOTER
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Site footer: newsletter, festival summary and site information.
+ *
+ * Mobile first: the three columns stack. From the lg breakpoint they sit
+ * side by side and the footer fills the viewport height.
+ *
+ * 1. svh (small viewport height): the height of the viewport with the
+ *    mobile browser bars visible, so the footer never ends under them.
+ *    Unlike dvh, it does not change while scrolling, so nothing jumps.
+ * 2. Auto margins push the heading and intro to the middle of the free
+ *    space and the form to the bottom, with no extra wrapper.
+ * 3. Paragraph color comes from the elements layer (secondary text). The
+ *    summary and the information column need their own colors, because
+ *    secondary grey does not reach 4.5:1 on these backgrounds.
+ * 4. Neutral 950 is too dark for the default focus outline (1.61:1).
+ * 5. Contact sits in the middle of the free space, as in the design.
+ * 6. Links take the color of their column (white on the dark one).
+ */
+
+.c-footer {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    grid-template-columns: repeat(3, 1fr);
+    min-block-size: 100svh; /* [1] */
+  }
+}
+
+.c-footer__newsletter {
+  display: flex;
+  flex-direction: column;
+  padding: variables.$spacing-footer;
+}
+
+.c-footer__title {
+  margin-block-start: auto; /* [2] */
+}
+
+.c-footer__intro {
+  margin-block-end: auto; /* [2] */
+}
+
+.c-footer__summary {
+  padding: variables.$spacing-footer;
+  margin: 0;
+  font-size: variables.$font-size-xl;
+  color: variables.$color-text-primary; /* [3] */
+  background-color: variables.$color-background-muted;
+}
+
+.c-footer__info {
+  display: grid;
+  grid-template-areas:
+    "nav social"
+    "contact contact"
+    "legal legal";
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: 1fr auto;
+  padding: variables.$spacing-footer;
+  color: variables.$color-text-inverse; /* [3] */
+  background-color: variables.$color-background-inverse;
+
+  :focus-visible {
+    outline-color: variables.$color-focus-on-dark; /* [4] */
+  }
+}
+
+.c-footer__nav {
+  grid-area: nav;
+}
+
+.c-footer__social {
+  grid-area: social;
+}
+
+.c-footer__contact {
+  grid-area: contact;
+  align-self: center; /* [5] */
+  margin: 0;
+}
+
+.c-footer__legal {
+  grid-area: legal;
+  margin: 0;
+  color: inherit; /* [3] */
+}
+
+.c-footer__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.c-footer__link {
+  color: inherit; /* [6] */
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
