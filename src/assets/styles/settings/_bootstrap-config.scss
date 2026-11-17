@@ -1,0 +1,25 @@
+/*------------------------------------*\
+  #BOOTSTRAP-CONFIG
+\*------------------------------------*/
+
+@use "variables";
+
+/**
+ * Bootstrap configuration: maps design tokens to Bootstrap's Sass variables.
+ * It outputs no CSS. The map is passed to Bootstrap in vendor/_bootstrap.scss.
+ *
+ * Keys are Bootstrap variable names without the `$`.
+ *
+ * 1. Square corners on every component, as in the designs.
+ * 2. Bootstrap computes tints and shades of this color with Sass functions,
+ *    so it must be an sRGB color (hex or rgb), not oklch().
+ */
+
+$config: (
+  "enable-rounded": false, /* [1] */
+  "primary": variables.$color-blue-800, /* [2] */
+  "font-family-sans-serif": variables.$font-family-sans,
+  "body-color": variables.$color-text-primary,
+  "body-bg": variables.$color-background-primary,
+  "headings-font-weight": variables.$font-weight-regular,
+);

@@ -1,0 +1,16 @@
+/*------------------------------------*\
+  #BOOTSTRAP
+\*------------------------------------*/
+
+@use "sass:meta";
+@use "../settings/bootstrap-config";
+
+/**
+ * Bootstrap 5, compiled from its Sass source with the project configuration.
+ *
+ * 1. meta.load-css() loads Bootstrap as a module and passes the
+ *    configuration map. Unlike @use, it can be nested inside a block,
+ *    which will let us place Bootstrap in its own cascade layer.
+ */
+
+@include meta.load-css("bootstrap/scss/bootstrap", $with: bootstrap-config.$config); /* [1] */

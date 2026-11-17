@@ -10,12 +10,13 @@
  *
  * SETTINGS
  * Variables............Design tokens as Sass variables.
+ * Bootstrap-config.....Design tokens mapped to Bootstrap variables.
  *
  * TOOLS
  * (none yet)
  *
  * VENDOR
- * (none yet)
+ * Bootstrap............Bootstrap 5, configured in Settings.
  *
  * GENERIC
  * Font-face............Self-hosted Switzer and Sentient variable fonts.
@@ -45,6 +46,17 @@
 \*------------------------------------*/
 
 @use "settings/variables";
+@use "settings/bootstrap-config";
+
+
+
+
+
+/*------------------------------------*\
+  #VENDOR
+\*------------------------------------*/
+
+@use "vendor/bootstrap";
 
 
 
