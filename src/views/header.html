@@ -1,14 +1,16 @@
 <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
 
-<header class="c-header">
+<header class="c-header sticky-top">
   <nav class="navbar navbar-expand-md" aria-label="Main">
-    <a class="navbar-brand c-header__brand" href="./index.html">annotation</a>
+    <a class="navbar-brand c-header__brand" href="./index.html">
+      <img class="c-header__logo" src="./assets/images/annotation-bold.svg" alt="Annotation" width="312" height="40" />
+    </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Menu">
+    <button class="navbar-toggler c-header__menu js-header-menu" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="main-nav">
+    <div class="collapse navbar-collapse c-header__menu js-header-menu" id="main-nav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link c-header__link c-header__link--speakers" href="./speakers.html" aria-current="{{ page === 'speakers' ? 'page' : 'false' }}">Speakers</a></li>
         <li class="nav-item"><a class="nav-link c-header__link c-header__link--programme" href="./programme.html" aria-current="{{ page === 'programme' ? 'page' : 'false' }}">Programme</a></li>

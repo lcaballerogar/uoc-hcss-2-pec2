@@ -19,7 +19,44 @@
  *    box can grow if the text wraps or is zoomed instead of clipping it.
  *    Bootstrap buttons use a taller line height (1.5) than the page (1.2);
  *    without resetting it, the call to action would measure 42px.
+ * 5. The header stays at the top (Bootstrap's sticky-top utility in the
+ *    HTML) and needs a background so page content scrolls under it.
+ *    When the menu is hidden (see [6]), the background goes, so the
+ *    footer columns show behind the wordmark.
+ * 6. main.js adds the inert attribute to the menu while the footer fills
+ *    the top of the viewport. inert takes it out of the focus order and the
+ *    accessibility tree; these rules hide it visually.
+ * 7. Fade only for users who have not asked for reduced motion.
  */
+
+ .c-header {
+  background-color: variables.$color-background-primary; /* [5] */
+
+  &:has([inert]) {
+    background-color: transparent; /* [5] */
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: background-color 0.2s; /* [7] */
+  }
+}
+
+.c-header__menu {
+  &[inert] {
+    visibility: hidden; /* [6] */
+    opacity: 0; /* [6] */
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 0.2s, visibility 0.2s; /* [7] */
+  }
+}
+
+.c-header__logo {
+  display: block;
+  inline-size: auto;
+  block-size: variables.$size-control-min-height;
+}
 
 .c-header__link,
 .c-header__cta { /* [3] */
