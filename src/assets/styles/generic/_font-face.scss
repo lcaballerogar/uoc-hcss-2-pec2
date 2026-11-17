@@ -1,0 +1,48 @@
+/*------------------------------------*\
+  #FONT-FACE
+\*------------------------------------*/
+
+/**
+ * Self-hosted variable fonts from Fontshare (ITF Free Font License).
+ * Official WOFF2 files, unmodified, as the license requires.
+ *
+ * Font paths are relative to main.scss, not to this partial: Sass merges
+ * all partials into main.scss before Parcel resolves url() references.
+ *
+ * 1. Each family keeps a single name for both styles, so the browser
+ *    picks the italic file when an element asks for `font-style: italic`.
+ * 2. Variable fonts: one file covers the whole weight range of the family.
+ * 3. Show the fallback font while the web font loads, then swap.
+ */
+
+@font-face {
+  font-family: "Switzer"; /* [1] */
+  font-style: normal;
+  font-weight: 100 900; /* [2] */
+  src: url("../fonts/switzer/Switzer-Variable.woff2") format("woff2");
+  font-display: swap; /* [3] */
+}
+
+@font-face {
+  font-family: "Switzer"; /* [1] */
+  font-style: italic;
+  font-weight: 100 900; /* [2] */
+  src: url("../fonts/switzer/Switzer-VariableItalic.woff2") format("woff2");
+  font-display: swap; /* [3] */
+}
+
+@font-face {
+  font-family: "Sentient"; /* [1] */
+  font-style: normal;
+  font-weight: 200 700; /* [2] */
+  src: url("../fonts/sentient/Sentient-Variable.woff2") format("woff2");
+  font-display: swap; /* [3] */
+}
+
+@font-face {
+  font-family: "Sentient"; /* [1] */
+  font-style: italic;
+  font-weight: 200 700; /* [2] */
+  src: url("../fonts/sentient/Sentient-VariableItalic.woff2") format("woff2");
+  font-display: swap; /* [3] */
+}

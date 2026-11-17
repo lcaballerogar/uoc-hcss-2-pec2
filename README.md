@@ -65,3 +65,12 @@ Always run the following commands during the development stage and for productio
 Feel free to create a [new issue](https://github.com/uoc-advanced-html-css/uoc-boilerplate/issues/new/) or drop me a line at jorditarrida@uoc.edu.
 
 Are you using this Boilerplate for your projects or for educational purposes? I would love to hear about it!
+
+
+## Fonts
+
+Switzer and Sentient are by Indian Type Foundry, distributed through
+[Fontshare](https://www.fontshare.com) under the ITF Free Font License
+(see `src/assets/fonts/FFL.txt`). They are self-hosted for this website
+only. Please do not reuse or redistribute the font files: download them
+from Fontshare instead.
