@@ -19,11 +19,17 @@
  * 6. Breakpoints come from the design tokens, so the project and Bootstrap
  *    share one source. In rem, media queries also respond to the font size
  *    the user sets in the browser.
+ * 7. "dark" is the project's darkest neutral, used by the newsletter
+ *    button (.btn-dark).
+ * 8. Form labels in secondary text, as in the designs.
+ * 9. Bootstrap's default checkbox border is a translucent grey (about
+ *    1.4:1 on white). WCAG 1.4.11 asks for 3:1 on form controls.
  */
 
 $config: (
   "enable-rounded": false, /* [1] */
   "primary": variables.$color-blue-800, /* [2] */
+  "dark": variables.$color-neutral-950, /* [7] */
   "font-family-sans-serif": variables.$font-family-sans,
   "body-color": variables.$color-text-primary,
   "body-bg": variables.$color-background-primary,
@@ -31,6 +37,8 @@ $config: (
   "focus-ring-width": 0, /* [3] */
   "nav-link-focus-box-shadow": none, /* [3] */
   "navbar-padding-y": 0, /* [5] */
+  "form-label-color": variables.$color-text-secondary, /* [8] */
+  "form-check-input-border": 1px solid variables.$color-text-primary, /* [9] */
   "navbar-light-color": variables.$color-text-primary, /* [4] */
   "navbar-light-hover-color": variables.$color-text-primary, /* [4] */
   "navbar-light-active-color": variables.$color-text-primary, /* [4] */

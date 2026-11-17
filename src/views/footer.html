@@ -3,17 +3,25 @@
     <h2 class="c-footer__title" id="newsletter-title">Stay in the margins</h2>
     <p class="c-footer__intro">One email a month with festival news, new speakers and writing tips. No spam, ever.</p>
 
-    <form action="#" method="post">
-      <label for="newsletter-email">Email*</label>
-      <input type="email" id="newsletter-email" name="email" autocomplete="email" required />
+    <form class="c-newsletter" action="#" method="post">
+      <div class="c-newsletter__field">
+        <label class="c-newsletter__label form-label" for="newsletter-email">Email*</label>
+        <input class="c-newsletter__input form-control" type="email" id="newsletter-email" name="email" autocomplete="email" required />
+      </div>
 
-      <label for="newsletter-name">Full name*</label>
-      <input type="text" id="newsletter-name" name="name" autocomplete="name" required />
+      <div class="c-newsletter__field">
+        <label class="c-newsletter__label form-label" for="newsletter-name">Full name*</label>
+        <input class="c-newsletter__input form-control" type="text" id="newsletter-name" name="name" autocomplete="name" required />
+      </div>
 
-      <input type="checkbox" id="newsletter-terms" name="terms" required />
-      <label for="newsletter-terms">I agree to terms and conditions</label>
+      <div class="c-newsletter__actions">
+        <div class="c-newsletter__terms form-check">
+          <input class="form-check-input" type="checkbox" id="newsletter-terms" name="terms" required />
+          <label class="form-check-label" for="newsletter-terms">I agree to terms and conditions*</label>
+        </div>
 
-      <button type="submit">Subscribe</button>
+        <button class="c-newsletter__submit btn btn-dark" type="submit">Subscribe</button>
+      </div>
     </form>
   </section>
 
@@ -37,7 +45,7 @@
 
     <address class="c-footer__contact">
       Contact us<br />
-      <a class="c-footer__link" href="mailto:hello@annotation-alvera.example">hello@annotation-alvera.example</a>
+      <a class="c-footer__link" href="mailto:hello@annotation-alvera.com">hello@annotation-alvera.com</a>
     </address>
 
     <p class="c-footer__legal"><small>&copy; 2027 Annotation — Alvera Literary Days. Organised by Alvera City Council.</small></p>

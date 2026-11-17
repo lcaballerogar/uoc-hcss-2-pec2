@@ -1,0 +1,61 @@
+/*------------------------------------*\
+  #NEWSLETTER
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Newsletter sign-up form, built on Bootstrap's forms and buttons.
+ * Bootstrap classes give the base styles and behaviour of the controls;
+ * c-newsletter classes adapt them to the design.
+ *
+ * 1. Fields are underlined, not boxed: only the bottom border remains.
+ *    Bootstrap has a single variable for all four borders, so the change
+ *    is made here.
+ * 2. Labels and inputs share the same inset, so their text lines up.
+ * 3. Same box as the header controls: 40px minimum height.
+ * 4. The button sits in the bottom right corner of the column.
+ * 5. Minimum space above the form when its container leaves no free space.
+ */
+
+.c-newsletter {
+  margin-block-start: variables.$spacing-m; /* [5] */
+}
+
+.c-newsletter__field {
+  margin-block-end: variables.$spacing-m;
+}
+
+.c-newsletter__label {
+  padding-inline: variables.$spacing-footer; /* [2] */
+}
+
+.c-newsletter__input {
+  min-block-size: variables.$size-control-min-height; /* [3] */
+  padding-inline: variables.$spacing-footer; /* [2] */
+  border-color: variables.$color-text-primary;
+  border-width: 0 0 1.5px; /* [1] */
+}
+
+.c-newsletter__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: variables.$spacing-s;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.c-newsletter__terms {
+  margin-block-end: 0;
+  margin-inline-start: variables.$spacing-footer; /* [2] */
+}
+
+.c-newsletter__submit {
+  display: flex;
+  align-items: center;
+  min-block-size: variables.$size-control-min-height; /* [3] */
+  padding-block: variables.$spacing-control-block;
+  padding-inline: variables.$spacing-control-inline;
+  margin-inline-start: auto; /* [4] */
+  line-height: variables.$line-height-tight;
+}

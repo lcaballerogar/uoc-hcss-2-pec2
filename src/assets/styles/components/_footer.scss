@@ -21,6 +21,9 @@
  * 4. Neutral 950 is too dark for the default focus outline (1.61:1).
  * 5. Contact sits in the middle of the free space, as in the design.
  * 6. Links take the color of their column (white on the dark one).
+ * 7. Only the text is inset. The form reaches the edges of the column, as
+ *    in the design: field lines span its full width and the button sits in
+ *    the bottom right corner.
  */
 
 .c-footer {
@@ -36,14 +39,16 @@
 .c-footer__newsletter {
   display: flex;
   flex-direction: column;
-  padding: variables.$spacing-footer;
+  padding-block-start: variables.$spacing-footer; /* [7] */
 }
 
 .c-footer__title {
+  padding-inline: variables.$spacing-footer; /* [7] */
   margin-block-start: auto; /* [2] */
 }
 
 .c-footer__intro {
+  padding-inline: variables.$spacing-footer; /* [7] */
   margin-block-end: auto; /* [2] */
 }
 

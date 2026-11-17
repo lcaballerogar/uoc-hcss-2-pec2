@@ -42,6 +42,7 @@
  * COMPONENTS
  * Header...............Site header and main navigation (Bootstrap navbar).
  * Footer...............Site footer and its components.
+ * Newsletter...........Newsletter sign-up form (Bootstrap forms and buttons).
  *
  * UTILITIES
  * (none yet)
@@ -119,4 +120,5 @@
 @layer components {
   @include meta.load-css("components/header");
   @include meta.load-css("components/footer");
+  @include meta.load-css("components/newsletter");
 }
