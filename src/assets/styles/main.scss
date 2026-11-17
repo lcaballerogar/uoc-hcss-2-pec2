@@ -6,6 +6,12 @@
  * to explicit and high-specificity. Class names follow BEMIT: each class
  * carries the namespace of its layer (o-, c-, u-).
  *
+ * Each ITCSS layer that outputs CSS is also a cascade layer (@layer), in
+ * the same order. A later layer always wins over an earlier one, whatever
+ * the specificity, so Bootstrap (vendor) never overrides project styles.
+ * Partials are loaded with meta.load-css(), because @use cannot be nested
+ * inside a block.
+ *
  * CONTENTS
  *
  * SETTINGS
@@ -14,6 +20,9 @@
  *
  * TOOLS
  * (none yet)
+ *
+ * LAYERS
+ * Order................Cascade layer order, from lowest to highest priority.
  *
  * VENDOR
  * Bootstrap............Bootstrap 5, configured in Settings.
@@ -45,8 +54,19 @@
   #SETTINGS
 \*------------------------------------*/
 
+@use "sass:meta";
 @use "settings/variables";
 @use "settings/bootstrap-config";
+
+
+
+
+
+/*------------------------------------*\
+  #LAYERS
+\*------------------------------------*/
+
+@layer vendor, generic, elements, objects, components, utilities;
 
 
 
@@ -56,7 +76,9 @@
   #VENDOR
 \*------------------------------------*/
 
-@use "vendor/bootstrap";
+@layer vendor {
+  @include meta.load-css("vendor/bootstrap");
+}
 
 
 
@@ -66,8 +88,9 @@
   #GENERIC
 \*------------------------------------*/
 
-@use "generic/font-face";
-
+@layer generic {
+  @include meta.load-css("generic/font-face");
+}
 
 
 
@@ -77,7 +100,9 @@
   #ELEMENTS
 \*------------------------------------*/
 
-@use "elements/page";
-@use "elements/headings";
-@use "elements/paragraphs";
-@use "elements/links";
+@layer elements {
+  @include meta.load-css("elements/page");
+  @include meta.load-css("elements/headings");
+  @include meta.load-css("elements/paragraphs");
+  @include meta.load-css("elements/links");
+}
