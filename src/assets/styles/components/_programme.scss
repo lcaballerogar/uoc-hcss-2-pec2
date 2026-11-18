@@ -8,16 +8,110 @@
 /**
  * Festival programme table.
  *
- * 1. Arrow icon (Remix Icon) as a CSS mask on a pseudo-element:
+ * 1. Full bleed: the table cancels the side gutters of .o-page, so it
+ *    reaches both edges of the viewport, as in the design.
+ * 2. Each day is a tbody. Its modifier sets the day color in a custom
+ *    property, used by the date cell that spans all its rows.
+ * 3. Row shades alternate across the whole table. nth-child counts rows
+ *    inside their own tbody, so a day that starts after an odd number of
+ *    rows takes the --shifted modifier, which swaps the two shades.
+ * 4. Date and link columns take only the space they need; the other columns
+ *    share the rest.
+ * 5. Arrow icon (Remix Icon) as a CSS mask on a pseudo-element:
  *    background-color paints it, so it takes the link color
  *    (currentcolor) in every state. The link's accessible name is the
  *    visually hidden text inside it.
+ * 6. A black line separates each day from the previous one, across the
+ *    whole table. It belongs to the day (tbody), not to its rows.
  */
+
+.c-programme {
+  inline-size: calc(100% + 2 * variables.$spacing-page-inline); /* [1] */
+  margin-inline: calc(-1 * variables.$spacing-page-inline); /* [1] */
+}
+
+.c-programme__head {
+  color: variables.$color-text-inverse;
+  background-color: variables.$color-background-inverse;
+}
+
+.c-programme__heading {
+  padding-block: variables.$spacing-table-head-block;
+  padding-inline: variables.$spacing-table-cell;
+  font-size: variables.$font-size-xs;
+  font-weight: variables.$font-weight-regular;
+
+  &--date {
+    inline-size: 15%; /* [4] */
+  }
+
+  &--action {
+    inline-size: 1%; /* [4] */
+  }
+}
+
+.c-programme__day {
+  --row-color-odd: #{variables.$color-background-card}; /* [3] */
+  --row-color-even: #{variables.$color-background-muted}; /* [3] */
+
+  & + & {
+    border-block-start: variables.$border-divider; /* [6] */
+  }
+
+  &--shifted {
+    --row-color-odd: #{variables.$color-background-muted}; /* [3] */
+    --row-color-even: #{variables.$color-background-card}; /* [3] */
+  }
+
+  &--thursday {
+    --day-color: #{variables.$color-day-1}; /* [2] */
+  }
+
+  &--friday {
+    --day-color: #{variables.$color-day-2}; /* [2] */
+  }
+
+  &--saturday {
+    --day-color: #{variables.$color-day-3}; /* [2] */
+  }
+
+  &--sunday {
+    --day-color: #{variables.$color-day-4}; /* [2] */
+  }
+}
+
+.c-programme__row {
+  background-color: var(--row-color-odd); /* [3] */
+
+  &:nth-child(even) {
+    background-color: var(--row-color-even); /* [3] */
+  }
+}
+
+.c-programme__date {
+  padding: variables.$spacing-table-cell;
+  font-size: variables.$font-size-2xl;
+  font-weight: variables.$font-weight-regular;
+  line-height: variables.$line-height-tight;
+  vertical-align: top;
+  background-color: var(--day-color); /* [2] */
+}
+
+.c-programme__cell {
+  block-size: variables.$size-table-row-min-height;
+  padding: variables.$spacing-table-cell;
+  vertical-align: top;
+
+  &--action {
+    text-align: end;
+  }
+}
 
 .c-programme__link {
   display: inline-flex;
+  color: inherit;
 
-  &::after { /* [1] */
+  &::after { /* [5] */
     display: inline-block;
     inline-size: 1.5rem;
     block-size: 1.5rem;

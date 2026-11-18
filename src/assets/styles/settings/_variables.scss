@@ -27,10 +27,17 @@ $color-neutral-700: #535353;
 $color-neutral-950: #121212;
 
 // Primitives: color (brand scales of the design system)
+$color-pink-300: #ff67ff;
 $color-pink-500: #f0f;
+
+$color-yellow-300: #fff04d;
 $color-yellow-500: #ffea00;
+
+$color-blue-300: #469cff;
 $color-blue-400: #2e8fff;
 $color-blue-800: #003775;
+
+$color-brown-300: #fdd35d;
 $color-brown-800: #7d5b01;
 
 // Primitives: typography
@@ -40,6 +47,7 @@ $font-family-serif: "Sentient", georgia, serif;
 $font-size-xs: 0.875rem;  // 14px
 $font-size-s: 1rem;       // 16px
 $font-size-xl: 1.5rem;    // 24px
+$font-size-2xl: 2rem;     // 32px
 $font-size-4xl: 3rem;     // 48px
 
 $font-weight-regular: 400;
@@ -56,6 +64,9 @@ $spacing-64: 16rem;       // 256px
 
 // Primitives: sizes: n × 4px
 $size-10: 2.5rem;         // 40px
+
+// Primitives: border widths
+$border-width-thick: 1.5px;
 
 // Primitives: breakpoints (Bootstrap's values, in rem)
 $breakpoint-sm: 36rem;    // 576px
@@ -99,6 +110,12 @@ $color-cta-text: $color-text-primary;
 $color-focus: $color-blue-800;               // on white: 11.65:1
 $color-focus-on-dark: $color-blue-400;       // on neutral 950: 5.79:1
 
+// Color: programme days (with text-primary: all above 6.5:1)
+$color-day-1: $color-yellow-300;
+$color-day-2: $color-pink-300;
+$color-day-3: $color-blue-300;
+$color-day-4: $color-brown-300;
+
 // Spacing
 $spacing-paragraph: $spacing-4;
 $spacing-control-block: $spacing-2;
@@ -110,6 +127,12 @@ $spacing-grid-gap: $spacing-3;
 $spacing-card: $spacing-3;
 $spacing-tag-block: $spacing-1;
 $spacing-tag-inline: $spacing-2;
+$spacing-table-cell: $spacing-3;
+$spacing-table-head-block: $spacing-1;
+
+// Borders
+$border-divider: $border-width-thick solid $color-text-primary;
 
 // Sizes
 $size-control-min-height: $size-10;
+$size-table-row-min-height: 7.5rem;   // 120px
