@@ -1,0 +1,68 @@
+/*------------------------------------*\
+  #MORE
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * "View more": a row of article cards that scrolls sideways.
+ *
+ * 1. The row reaches the right edge of the viewport, as in the design: it
+ *    cancels the right margin of .o-page.
+ * 2. Each card is three columns of the layout grid wide. The cards are
+ *    not grid items, so the width is worked out from the width of the
+ *    "layout" container: 100cqi minus the 11 gutters, divided into 12
+ *    columns, times three, plus the two gutters between them.
+ * 3. Scroll snapping: each card stops aligned with the start of the row.
+ */
+
+.c-more__title {
+  display: flex;
+  gap: variables.$spacing-3;
+  align-items: center;
+  margin-block-end: variables.$spacing-6;
+  font-size: variables.$font-size-xs;
+}
+
+.c-more__list {
+  display: flex;
+  gap: variables.$spacing-layout-gap;
+  padding: 0;
+  margin-block: 0;
+  margin-inline: 0 calc(-1 * variables.$spacing-page-inline); /* [1] */
+  overflow-x: auto;
+  list-style: none;
+  scroll-snap-type: x mandatory; /* [3] */
+}
+
+.c-more__item {
+  flex: 0 0 80%;
+  scroll-snap-align: start; /* [3] */
+
+  @media (min-width: variables.$breakpoint-lg) {
+    flex-basis: calc((100cqi - 11 * variables.$spacing-layout-gap) / 12 * 3 + 2 * variables.$spacing-layout-gap); /* [2] */
+  }
+}
+
+.c-more__image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.c-more__headline {
+  margin-block: variables.$spacing-3 0;
+  font-family: variables.$font-family-serif;
+  font-size: variables.$font-size-m;
+}
+
+.c-more__link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -55,6 +55,7 @@
  * Latest...............List of recent articles (grey cards).
  * Article-info.........Further info and author box (subgrid).
  * Share................Links to share the page.
+ * More.................Sideways row of related articles (cqi, scroll snap).
  *
  * UTILITIES
  * (none yet)
@@ -157,4 +158,5 @@
   @include meta.load-css("components/latest");
   @include meta.load-css("components/article-info");
   @include meta.load-css("components/share");
+  @include meta.load-css("components/more");
 }

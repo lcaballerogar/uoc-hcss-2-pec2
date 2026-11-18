@@ -9,12 +9,17 @@
  * 12px side margins of .o-page. Children are placed on the columns by
  * each page component (grid-column: 3 / 10…). Mobile first: one column
  * until the lg breakpoint.
+ *
+ * 1. The grid is also a size container named "layout", so elements inside
+ *    can measure grid columns in cqi units (1cqi = 1% of its width), even
+ *    when they are not grid items (see components/_more.scss).
  */
 
 .o-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   column-gap: variables.$spacing-layout-gap;
+  container: layout / inline-size; /* [1] */
 
   @media (min-width: variables.$breakpoint-lg) {
     grid-template-columns: repeat(variables.$grid-columns, minmax(0, 1fr));
