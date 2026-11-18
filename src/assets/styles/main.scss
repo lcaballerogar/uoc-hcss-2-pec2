@@ -19,7 +19,7 @@
  * Bootstrap-config.....Design tokens mapped to Bootstrap variables.
  *
  * TOOLS
- * (none yet)
+ * Functions............Custom Sass functions (icon paths).
  *
  * LAYERS
  * Order................Cascade layer order, from lowest to highest priority.
@@ -46,6 +46,7 @@
  * Page-header..........Page title and intro.
  * Speakers.............Speaker grid (Flexbox).
  * Speaker..............Speaker card (Bootstrap card, container query).
+ * Programme............Festival programme table.
  *
  * UTILITIES
  * (none yet)
@@ -139,4 +140,5 @@
   @include meta.load-css("components/page-header");
   @include meta.load-css("components/speakers");
   @include meta.load-css("components/speaker");
+  @include meta.load-css("components/programme");
 }

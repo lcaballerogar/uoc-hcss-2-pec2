@@ -1,0 +1,22 @@
+/*------------------------------------*\
+  #FUNCTIONS
+\*------------------------------------*/
+
+/**
+ * Custom Sass functions. They output no CSS.
+ */
+
+/**
+ * Path to a Remix Icon SVG, for use as a CSS mask.
+ *
+ * $category: folder in remixicon/icons, as in the Remix Icon website
+ *            ("Arrows", "System"…).
+ * $name:     file name without the extension ("arrow-right-up-line").
+ *
+ * The npm: scheme tells Parcel to resolve the path inside node_modules.
+ * Parcel copies only the SVG files that are used to dist/.
+ */
+
+@function icon($category, $name) {
+  @return url("npm:remixicon/icons/#{$category}/#{$name}.svg");
+}

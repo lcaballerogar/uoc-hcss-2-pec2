@@ -10,7 +10,7 @@
  * 1. Mobile first: one card per row, then two (md) and three (lg).
  *    flex-grow is 0 so the last row keeps the same card width instead of
  *    stretching to fill the space.
-  * 2. Each item is a size container named "speaker". The speaker card
+ * 2. Each item is a size container named "speaker". The speaker card
  *    adapts to the width of its item, not to the viewport (see
  *    components/_speaker.scss).
  */

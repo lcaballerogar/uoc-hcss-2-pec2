@@ -1,0 +1,28 @@
+/*------------------------------------*\
+  #PROGRAMME
+\*------------------------------------*/
+
+@use "../settings/variables";
+@use "../tools/functions";
+
+/**
+ * Festival programme table.
+ *
+ * 1. Arrow icon (Remix Icon) as a CSS mask on a pseudo-element:
+ *    background-color paints it, so it takes the link color
+ *    (currentcolor) in every state. The link's accessible name is the
+ *    visually hidden text inside it.
+ */
+
+.c-programme__link {
+  display: inline-flex;
+
+  &::after { /* [1] */
+    display: inline-block;
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+    content: "";
+    background-color: currentcolor;
+    mask: functions.icon("Arrows", "arrow-right-up-line") center / contain no-repeat;
+  }
+}
