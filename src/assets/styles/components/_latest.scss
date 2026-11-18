@@ -1,0 +1,53 @@
+/*------------------------------------*\
+  #LATEST
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * "The latest": list of recent articles, one grey card each.
+ *
+ * 1. The list keeps its order for assistive tech (newest first); the
+ *    numbers are only hidden visually.
+ * 2. Headlines use the serif family, like every headline on the site.
+ */
+
+.c-latest__title {
+  margin-block-end: variables.$spacing-4;
+  font-size: variables.$font-size-s;
+}
+
+.c-latest__list {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$spacing-list-gap;
+  padding: 0;
+  margin: 0;
+  list-style: none; /* [1] */
+}
+
+.c-latest__item {
+  padding: variables.$spacing-box;
+  background-color: variables.$color-background-card;
+}
+
+.c-latest__headline {
+  margin-block-end: variables.$spacing-3;
+  font-family: variables.$font-family-serif; /* [2] */
+  font-size: variables.$font-size-m;
+}
+
+.c-latest__link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.c-latest__byline {
+  margin: 0;
+  font-size: variables.$font-size-xs;
+  color: variables.$color-text-secondary-on-muted;
+}

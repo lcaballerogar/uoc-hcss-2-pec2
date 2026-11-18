@@ -1,0 +1,44 @@
+/*------------------------------------*\
+  #ARTICLE-INFO
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Grey box at the end of an article: further information and a note
+ * about the author.
+ *
+ * 1. From the lg breakpoint the box shares the columns of the page grid
+ *    (subgrid), so each section starts on a grid column, as in the design:
+ *    "Further info" on the first three and "About the author" on the next
+ *    three.
+ */
+
+.c-article-info {
+  background-color: variables.$color-background-card;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    display: grid;
+    grid-template-columns: subgrid; /* [1] */
+  }
+}
+
+.c-article-info__section {
+  padding: variables.$spacing-box;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    grid-column: span 3; /* [1] */
+  }
+}
+
+.c-article-info__title {
+  margin-block-end: variables.$spacing-3;
+  font-size: variables.$font-size-s;
+}
+
+.c-article-info__text {
+  margin: 0;
+  font-size: variables.$font-size-xs;
+  line-height: variables.$line-height-relaxed;
+  color: variables.$color-text-secondary-on-muted;
+}

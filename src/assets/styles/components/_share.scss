@@ -1,0 +1,30 @@
+/*------------------------------------*\
+  #SHARE
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Links to share the current page, on a highlight background.
+ */
+
+.c-share {
+  padding: variables.$spacing-box;
+  background-color: variables.$color-background-highlight;
+}
+
+.c-share__title {
+  margin-block-end: variables.$spacing-3;
+  font-size: variables.$font-size-s;
+}
+
+.c-share__list {
+  padding-inline-start: variables.$spacing-4;
+  margin: 0;
+  font-size: variables.$font-size-xs;
+  color: variables.$color-text-secondary-on-muted;
+}
+
+.c-share__link {
+  color: inherit;
+}

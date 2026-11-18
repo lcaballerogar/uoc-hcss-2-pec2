@@ -46,6 +46,7 @@ $font-family-serif: "Sentient", georgia, serif;
 
 $font-size-xs: 0.875rem;  // 14px
 $font-size-s: 1rem;       // 16px
+$font-size-m: 1.125rem;   // 18px
 $font-size-xl: 1.5rem;    // 24px
 $font-size-2xl: 2rem;     // 32px
 $font-size-4xl: 3rem;     // 48px
@@ -61,6 +62,7 @@ $spacing-3: 0.75rem;      // 12px
 $spacing-4: 1rem;         // 16px
 $spacing-5: 1.25rem;      // 20px
 $spacing-6: 1.5rem;       // 24px
+$spacing-7: 1.75rem;      // 28px
 $spacing-24: 6rem;        // 96px
 $spacing-64: 16rem;       // 256px
 
@@ -91,6 +93,7 @@ $breakpoint-xxl: 87.5rem; // 1400px
 $color-background-primary: $color-neutral-0;
 $color-background-muted: $color-neutral-200;
 $color-background-inverse: $color-neutral-950;
+$color-background-highlight: $color-yellow-300;
 
 $color-background-card: $color-neutral-100;
 $color-background-tag: $color-neutral-200;
@@ -136,6 +139,8 @@ $spacing-table-head-block: $spacing-1;
 $spacing-section: $spacing-24;
 $spacing-layout-gap: $spacing-5;
 $spacing-content-block: $spacing-6;
+$spacing-box: $spacing-7;
+$spacing-list-gap: $spacing-2;
 
 // Borders
 $border-divider: $border-width-thick solid $color-text-primary;

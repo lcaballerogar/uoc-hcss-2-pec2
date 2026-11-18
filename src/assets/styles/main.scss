@@ -52,6 +52,9 @@
  * Article-header.......Article title, byline, date and topics.
  * Tags.................Topic labels.
  * Article-content......Long-form text in plain HTML (:where(), :has()).
+ * Latest...............List of recent articles (grey cards).
+ * Article-info.........Further info and author box (subgrid).
+ * Share................Links to share the page.
  *
  * UTILITIES
  * (none yet)
@@ -151,4 +154,7 @@
   @include meta.load-css("components/article-header");
   @include meta.load-css("components/tags");
   @include meta.load-css("components/article-content");
+  @include meta.load-css("components/latest");
+  @include meta.load-css("components/article-info");
+  @include meta.load-css("components/share");
 }
