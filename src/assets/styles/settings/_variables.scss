@@ -59,11 +59,16 @@ $spacing-1: 0.25rem;      // 4px
 $spacing-2: 0.5rem;       // 8px
 $spacing-3: 0.75rem;      // 12px
 $spacing-4: 1rem;         // 16px
+$spacing-5: 1.25rem;      // 20px
 $spacing-6: 1.5rem;       // 24px
+$spacing-24: 6rem;        // 96px
 $spacing-64: 16rem;       // 256px
 
 // Primitives: sizes: n × 4px
 $size-10: 2.5rem;         // 40px
+
+// Primitives: layout grid
+$grid-columns: 12;
 
 // Primitives: border widths
 $border-width-thick: 1.5px;
@@ -129,6 +134,8 @@ $spacing-tag-block: $spacing-1;
 $spacing-tag-inline: $spacing-2;
 $spacing-table-cell: $spacing-3;
 $spacing-table-head-block: $spacing-1;
+$spacing-section: $spacing-24;
+$spacing-layout-gap: $spacing-5;
 
 // Borders
 $border-divider: $border-width-thick solid $color-text-primary;

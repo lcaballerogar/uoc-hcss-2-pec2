@@ -1,0 +1,22 @@
+/*------------------------------------*\
+  #LAYOUT
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Layout grid of the designs: 12 columns with 20px gutters, inside the
+ * 12px side margins of .o-page. Children are placed on the columns by
+ * each page component (grid-column: 3 / 10…). Mobile first: one column
+ * until the lg breakpoint.
+ */
+
+.o-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: variables.$spacing-layout-gap;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    grid-template-columns: repeat(variables.$grid-columns, minmax(0, 1fr));
+  }
+}

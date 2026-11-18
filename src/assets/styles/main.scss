@@ -38,6 +38,7 @@
  *
  * OBJECTS
  * Page.................Page container: side gutters and top spacing.
+ * Layout...............12-column layout grid of the designs.
  *
  * COMPONENTS
  * Header...............Site header and main navigation (Bootstrap navbar).
@@ -47,6 +48,7 @@
  * Speakers.............Speaker grid (Flexbox).
  * Speaker..............Speaker card (Bootstrap card, container query).
  * Programme............Festival programme table.
+* Article-layout........Article page grid (12 columns, subgrid).
  *
  * UTILITIES
  * (none yet)
@@ -123,6 +125,7 @@
 
 @layer objects {
   @include meta.load-css("objects/page");
+    @include meta.load-css("objects/layout");
 }
 
 
@@ -141,4 +144,5 @@
   @include meta.load-css("components/speakers");
   @include meta.load-css("components/speaker");
   @include meta.load-css("components/programme");
+  @include meta.load-css("components/article-layout");
 }

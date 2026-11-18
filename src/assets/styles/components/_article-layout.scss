@@ -1,0 +1,95 @@
+/*------------------------------------*\
+  #ARTICLE-LAYOUT
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Article page: places its blocks on the 12-column grid of .o-layout,
+ * following the grid of the designs.
+ *
+ * 1. Mobile first: every block takes the single column and stacks in
+ *    source order.
+ * 2. The article spans the whole grid and shares its columns and rows
+ *    (subgrid). Its children (header, hero, body, footer) sit on the page
+ *    grid, and the aside, a sibling of the article, fills the free cell
+ *    next to the body. Without subgrid, an element outside the article
+ *    could not sit between its hero and its footer.
+ * 3. Rows of the page grid, in order: header, hero, body (with the aside),
+ *    article footer and "View more". Each block sets its row, so a missing
+ *    block (the hero, until there is an image) leaves its row empty instead
+ *    of moving the others up.
+ * 4. Full bleed: the hero cancels the side margins of .o-page and reaches
+ *    both edges of the viewport.
+ */
+
+.c-article-layout {
+  row-gap: variables.$spacing-section;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    grid-template-rows: repeat(5, auto); /* [3] */
+  }
+}
+
+.c-article-layout__article {
+  display: grid;
+  grid-template-columns: subgrid; /* [2] */
+  grid-column: 1 / -1;
+  row-gap: variables.$spacing-section;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    grid-template-rows: subgrid; /* [2] */
+    grid-row: 1 / 5; /* [3] */
+  }
+}
+
+.c-article-layout__hero {
+  grid-column: 1 / -1;
+  margin-inline: calc(-1 * variables.$spacing-page-inline); /* [4] */
+}
+
+.c-article-layout__footer {
+  display: grid;
+  grid-template-columns: subgrid; /* [2] */
+  grid-column: 1 / -1;
+  row-gap: variables.$spacing-layout-gap;
+}
+
+@media (min-width: variables.$breakpoint-lg) {
+  .c-article-layout__header {
+    grid-row: 1; /* [3] */
+    grid-column: 3 / 10;
+  }
+
+  .c-article-layout__hero {
+    grid-row: 2; /* [3] */
+  }
+
+  .c-article-layout__body {
+    grid-row: 3; /* [3] */
+    grid-column: 2 / 8;
+  }
+
+  .c-article-layout__footer {
+    grid-row: 4; /* [3] */
+  }
+
+  .c-article-layout__info {
+    grid-column: 2 / 9;
+  }
+
+  .c-article-layout__share,
+  .c-article-layout__aside {
+    grid-column: 9 / 12;
+  }
+
+  .c-article-layout__aside {
+    grid-row: 3; /* [3] */
+    align-self: start;
+  }
+
+  .c-article-layout__more {
+    grid-row: 5; /* [3] */
+    grid-column: 2 / -1;
+  }
+}
