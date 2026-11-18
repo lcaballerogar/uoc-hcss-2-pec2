@@ -20,6 +20,7 @@
 
 // Primitives: color (neutral scale of the design system)
 $color-neutral-0: #fff;
+$color-neutral-100: #ebebeb;
 $color-neutral-200: #dedede;
 $color-neutral-600: #737373;
 $color-neutral-700: #535353;
@@ -36,6 +37,7 @@ $color-brown-800: #7d5b01;
 $font-family-sans: "Switzer", system-ui, sans-serif;
 $font-family-serif: "Sentient", georgia, serif;
 
+$font-size-xs: 0.875rem;  // 14px
 $font-size-s: 1rem;       // 16px
 $font-size-xl: 1.5rem;    // 24px
 $font-size-4xl: 3rem;     // 48px
@@ -44,10 +46,13 @@ $font-weight-regular: 400;
 
 $line-height-tight: 1.2;
 
-// Primitives: spacing: n × 4px
-$spacing-xs: 0.5rem;      // 8px
-$spacing-s: 1rem;         // 16px
-$spacing-m: 1.5rem;       // 24px
+// Primitives: spacing: n × 4px, named after n
+$spacing-1: 0.25rem;      // 4px
+$spacing-2: 0.5rem;       // 8px
+$spacing-3: 0.75rem;      // 12px
+$spacing-4: 1rem;         // 16px
+$spacing-6: 1.5rem;       // 24px
+$spacing-64: 16rem;       // 256px
 
 // Primitives: sizes: n × 4px
 $size-10: 2.5rem;         // 40px
@@ -71,6 +76,9 @@ $color-background-primary: $color-neutral-0;
 $color-background-muted: $color-neutral-200;
 $color-background-inverse: $color-neutral-950;
 
+$color-background-card: $color-neutral-100;
+$color-background-tag: $color-neutral-200;
+
 // Color: text
 $color-text-primary: $color-neutral-950;
 $color-text-secondary: $color-neutral-600;           // on white only: 4.74:1
@@ -92,10 +100,16 @@ $color-focus: $color-blue-800;               // on white: 11.65:1
 $color-focus-on-dark: $color-blue-400;       // on neutral 950: 5.79:1
 
 // Spacing
-$spacing-paragraph: $spacing-s;
-$spacing-control-block: $spacing-xs;
-$spacing-control-inline: $spacing-m;
-$spacing-footer: $spacing-s;
+$spacing-paragraph: $spacing-4;
+$spacing-control-block: $spacing-2;
+$spacing-control-inline: $spacing-6;
+$spacing-footer: $spacing-4;
+$spacing-page-inline: $spacing-3;
+$spacing-page-top: $spacing-64;
+$spacing-grid-gap: $spacing-3;
+$spacing-card: $spacing-3;
+$spacing-tag-block: $spacing-1;
+$spacing-tag-inline: $spacing-2;
 
 // Sizes
 $size-control-min-height: $size-10;

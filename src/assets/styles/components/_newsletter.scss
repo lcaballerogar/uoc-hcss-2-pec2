@@ -19,11 +19,11 @@
  */
 
 .c-newsletter {
-  margin-block-start: variables.$spacing-m; /* [5] */
+  margin-block-start: variables.$spacing-6; /* [5] */
 }
 
 .c-newsletter__field {
-  margin-block-end: variables.$spacing-m;
+  margin-block-end: variables.$spacing-6;
 }
 
 .c-newsletter__label {
@@ -40,7 +40,7 @@
 .c-newsletter__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: variables.$spacing-s;
+  gap: variables.$spacing-4;
   align-items: center;
   justify-content: space-between;
 }

@@ -11,78 +11,127 @@
   <body>
     <include src="./views/header.html" locals='{"page": "speakers"}'></include>
 
-    <main id="main-content">
-      <h1>Speakers</h1>
-      <p>Writers, editors and translators who will share how stories are made, from the first note to the printed page.</p>
+    <main id="main-content" class="o-page">
+      <header class="c-page-header">
+        <h1 class="c-page-header__title">Speakers</h1>
+        <p class="c-page-header__intro">Writers, editors and translators who will share how stories are made, from the first note to the printed page.</p>
+      </header>
 
-      <ul>
-        <li>
-          <article aria-labelledby="speaker-ines-varela-roig">
-            <!-- Portrait -->
-            <h2 id="speaker-ines-varela-roig">Ines Varela Roig</h2>
-            <p>Novelist</p>
-            <p>Writes quiet novels about loud families. Her third book is set in a seaside café.</p>
+      <ul class="c-speakers">
+        <li class="c-speakers__item">
+          <article class="c-speaker card" aria-labelledby="speaker-ines-varela-roig">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/speakers/ines-varela-roig.jpg?as=webp&width=480 480w, ./assets/images/speakers/ines-varela-roig.jpg?as=webp&width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" />
+              <img class="c-speaker__portrait card-img-top" src="./assets/images/speakers/ines-varela-roig.jpg?width=960" srcset="./assets/images/speakers/ines-varela-roig.jpg?width=480 480w, ./assets/images/speakers/ines-varela-roig.jpg?width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" alt="" width="960" height="540" />
+            </picture>
+            <div class="c-speaker__body card-body">
+              <h2 class="c-speaker__name card-title" id="speaker-ines-varela-roig">Ines Varela Roig</h2>
+              <p class="c-speaker__role">Novelist</p>
+              <p class="c-speaker__bio card-text">Writes quiet novels about loud families. Her third book is set in a seaside café.</p>
+            </div>
           </article>
         </li>
-        <li>
-          <article aria-labelledby="speaker-tomas-ebrard">
-            <!-- Portrait -->
-            <h2 id="speaker-tomas-ebrard">Tomás Ebrard</h2>
-            <p>Short story writer</p>
-            <p>Has published three collections of very short stories, none longer than a bus ride.</p>
+
+        <li class="c-speakers__item">
+          <article class="c-speaker card" aria-labelledby="speaker-tomas-ebrard">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/speakers/tomas-ebrard.jpg?as=webp&width=480 480w, ./assets/images/speakers/tomas-ebrard.jpg?as=webp&width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" />
+              <img class="c-speaker__portrait card-img-top" src="./assets/images/speakers/tomas-ebrard.jpg?width=960" srcset="./assets/images/speakers/tomas-ebrard.jpg?width=480 480w, ./assets/images/speakers/tomas-ebrard.jpg?width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" alt="" width="960" height="540" />
+            </picture>
+            <div class="c-speaker__body card-body">
+              <h2 class="c-speaker__name card-title" id="speaker-tomas-ebrard">Tomás Ebrard</h2>
+              <p class="c-speaker__role">Short story writer</p>
+              <p class="c-speaker__bio card-text">Has published three collections of very short stories, none longer than a bus ride.</p>
+            </div>
           </article>
         </li>
-        <li>
-          <article aria-labelledby="speaker-noor-haddad">
-            <!-- Portrait -->
-            <h2 id="speaker-noor-haddad">Noor Haddad</h2>
-            <p>Literary translator</p>
-            <p>Translates poetry from Arabic and French, and believes every translation is a rewrite.</p>
+
+        <li class="c-speakers__item">
+          <article class="c-speaker card" aria-labelledby="speaker-noor-haddad">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/speakers/noor-haddad.jpg?as=webp&width=480 480w, ./assets/images/speakers/noor-haddad.jpg?as=webp&width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" />
+              <img class="c-speaker__portrait card-img-top" src="./assets/images/speakers/noor-haddad.jpg?width=960" srcset="./assets/images/speakers/noor-haddad.jpg?width=480 480w, ./assets/images/speakers/noor-haddad.jpg?width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" alt="" width="960" height="540" />
+            </picture>
+            <div class="c-speaker__body card-body">
+              <h2 class="c-speaker__name card-title" id="speaker-noor-haddad">Noor Haddad</h2>
+              <p class="c-speaker__role">Literary translator</p>
+              <p class="c-speaker__bio card-text">Translates poetry from Arabic and French, and believes every translation is a rewrite.</p>
+            </div>
           </article>
         </li>
-        <li>
-          <article aria-labelledby="speaker-martina-coll">
-            <!-- Portrait -->
-            <h2 id="speaker-martina-coll">Martina Coll</h2>
-            <p>Editor</p>
-            <p>Has spent 15 years reading manuscripts at an independent publisher.</p>
+
+        <li class="c-speakers__item">
+          <article class="c-speaker card" aria-labelledby="speaker-martina-coll">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/speakers/martina-coll.jpg?as=webp&width=480 480w, ./assets/images/speakers/martina-coll.jpg?as=webp&width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" />
+              <img class="c-speaker__portrait card-img-top" src="./assets/images/speakers/martina-coll.jpg?width=960" srcset="./assets/images/speakers/martina-coll.jpg?width=480 480w, ./assets/images/speakers/martina-coll.jpg?width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" alt="" width="960" height="540" loading="lazy" />
+            </picture>
+            <div class="c-speaker__body card-body">
+              <h2 class="c-speaker__name card-title" id="speaker-martina-coll">Martina Coll</h2>
+              <p class="c-speaker__role">Editor</p>
+              <p class="c-speaker__bio card-text">Has spent 15 years reading manuscripts at an independent publisher.</p>
+            </div>
           </article>
         </li>
-        <li>
-          <article aria-labelledby="speaker-daniel-okafor">
-            <!-- Portrait -->
-            <h2 id="speaker-daniel-okafor">Daniel Okafor</h2>
-            <p>Poet and performer</p>
-            <p>Turns poems into live performances with music and projected text.</p>
+
+        <li class="c-speakers__item">
+          <article class="c-speaker card" aria-labelledby="speaker-daniel-okafor">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/speakers/daniel-okafor.jpg?as=webp&width=480 480w, ./assets/images/speakers/daniel-okafor.jpg?as=webp&width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" />
+              <img class="c-speaker__portrait card-img-top" src="./assets/images/speakers/daniel-okafor.jpg?width=960" srcset="./assets/images/speakers/daniel-okafor.jpg?width=480 480w, ./assets/images/speakers/daniel-okafor.jpg?width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" alt="" width="960" height="540" loading="lazy" />
+            </picture>
+            <div class="c-speaker__body card-body">
+              <h2 class="c-speaker__name card-title" id="speaker-daniel-okafor">Daniel Okafor</h2>
+              <p class="c-speaker__role">Poet and performer</p>
+              <p class="c-speaker__bio card-text">Turns poems into live performances with music and projected text.</p>
+            </div>
           </article>
         </li>
-        <li>
-          <article aria-labelledby="speaker-lucia-brenner">
-            <!-- Portrait -->
-            <h2 id="speaker-lucia-brenner">Lucia Brenner</h2>
-            <p>Children's author</p>
-            <p>Writes picture books with her daughter, who is the toughest critic she knows.</p>
+
+        <li class="c-speakers__item">
+          <article class="c-speaker card" aria-labelledby="speaker-lucia-brenner">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/speakers/lucia-brenner.jpg?as=webp&width=480 480w, ./assets/images/speakers/lucia-brenner.jpg?as=webp&width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" />
+              <img class="c-speaker__portrait card-img-top" src="./assets/images/speakers/lucia-brenner.jpg?width=960" srcset="./assets/images/speakers/lucia-brenner.jpg?width=480 480w, ./assets/images/speakers/lucia-brenner.jpg?width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" alt="" width="960" height="540" loading="lazy" />
+            </picture>
+            <div class="c-speaker__body card-body">
+              <h2 class="c-speaker__name card-title" id="speaker-lucia-brenner">Lucia Brenner</h2>
+              <p class="c-speaker__role">Children's author</p>
+              <p class="c-speaker__bio card-text">Writes picture books with her daughter, who is the toughest critic she knows.</p>
+            </div>
           </article>
         </li>
-        <li>
-          <article aria-labelledby="speaker-pau-serrat">
-            <!-- Portrait -->
-            <h2 id="speaker-pau-serrat">Pau Serrat</h2>
-            <p>Crime writer</p>
-            <p>Former journalist who now solves imaginary cases in a very real Barcelona.</p>
+
+        <li class="c-speakers__item">
+          <article class="c-speaker card" aria-labelledby="speaker-pau-serrat">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/speakers/pau-serrat.jpg?as=webp&width=480 480w, ./assets/images/speakers/pau-serrat.jpg?as=webp&width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" />
+              <img class="c-speaker__portrait card-img-top" src="./assets/images/speakers/pau-serrat.jpg?width=960" srcset="./assets/images/speakers/pau-serrat.jpg?width=480 480w, ./assets/images/speakers/pau-serrat.jpg?width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" alt="" width="960" height="540" loading="lazy" />
+            </picture>
+            <div class="c-speaker__body card-body">
+              <h2 class="c-speaker__name card-title" id="speaker-pau-serrat">Pau Serrat</h2>
+              <p class="c-speaker__role">Crime writer</p>
+              <p class="c-speaker__bio card-text">Former journalist who now solves imaginary cases in a very real Barcelona.</p>
+            </div>
           </article>
         </li>
-        <li>
-          <article aria-labelledby="speaker-ada-lindqvist">
-            <!-- Portrait -->
-            <h2 id="speaker-ada-lindqvist">Ada Lindqvist</h2>
-            <p>Illustrator and zine maker</p>
-            <p>Draws, writes and staples her own books, one photocopy at a time.</p>
+
+        <li class="c-speakers__item">
+          <article class="c-speaker card" aria-labelledby="speaker-ada-lindqvist">
+            <picture>
+              <source type="image/webp" srcset="./assets/images/speakers/ada-lindqvist.jpg?as=webp&width=480 480w, ./assets/images/speakers/ada-lindqvist.jpg?as=webp&width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" />
+              <img class="c-speaker__portrait card-img-top" src="./assets/images/speakers/ada-lindqvist.jpg?width=960" srcset="./assets/images/speakers/ada-lindqvist.jpg?width=480 480w, ./assets/images/speakers/ada-lindqvist.jpg?width=960 960w" sizes="(min-width: 62rem) calc((100vw - 3rem) / 3), (min-width: 48rem) calc((100vw - 2.25rem) / 2), (min-width: 31.5rem) 45vw, 100vw" alt="" width="960" height="540" loading="lazy" />
+            </picture>
+            <div class="c-speaker__body card-body">
+              <h2 class="c-speaker__name card-title" id="speaker-ada-lindqvist">Ada Lindqvist</h2>
+              <p class="c-speaker__role">Illustrator and zine maker</p>
+              <p class="c-speaker__bio card-text">Draws, writes and staples her own books, one photocopy at a time.</p>
+            </div>
           </article>
         </li>
       </ul>
 
-      <p>More guests will be announced in March 2027.</p>
+      <p class="c-speakers__note">More guests will be announced in March 2027.</p>
     </main>
 
     <include src="./views/footer.html"></include>

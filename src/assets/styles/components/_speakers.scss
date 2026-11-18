@@ -1,0 +1,42 @@
+/*------------------------------------*\
+  #SPEAKERS
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Speaker grid, built with Flexbox (not Bootstrap's .row and .col-*).
+ *
+ * 1. Mobile first: one card per row, then two (md) and three (lg).
+ *    flex-grow is 0 so the last row keeps the same card width instead of
+ *    stretching to fill the space.
+  * 2. Each item is a size container named "speaker". The speaker card
+ *    adapts to the width of its item, not to the viewport (see
+ *    components/_speaker.scss).
+ */
+
+.c-speakers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: variables.$spacing-grid-gap;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.c-speakers__item {
+  flex: 0 0 100%; /* [1] */
+  container-type: speaker / inline-size; /* [2] */
+
+  @media (min-width: variables.$breakpoint-md) {
+    flex-basis: calc((100% - variables.$spacing-grid-gap) / 2); /* [1] */
+  }
+
+  @media (min-width: variables.$breakpoint-lg) {
+    flex-basis: calc((100% - 2 * variables.$spacing-grid-gap) / 3); /* [1] */
+  }
+}
+
+.c-speakers__note {
+  margin-block: variables.$spacing-6 0;
+}

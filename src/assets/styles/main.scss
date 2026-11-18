@@ -37,12 +37,15 @@
  * Links................Inherited link color and visible keyboard focus.
  *
  * OBJECTS
- * (none yet)
+ * Page.................Page container: side gutters and top spacing.
  *
  * COMPONENTS
  * Header...............Site header and main navigation (Bootstrap navbar).
  * Footer...............Site footer and its components.
  * Newsletter...........Newsletter sign-up form (Bootstrap forms and buttons).
+ * Page-header..........Page title and intro.
+ * Speakers.............Speaker grid (Flexbox).
+ * Speaker..............Speaker card (Bootstrap card, container query).
  *
  * UTILITIES
  * (none yet)
@@ -114,6 +117,18 @@
 
 
 /*------------------------------------*\
+  #OBJECTS
+\*------------------------------------*/
+
+@layer objects {
+  @include meta.load-css("objects/page");
+}
+
+
+
+
+
+/*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
 
@@ -121,4 +136,7 @@
   @include meta.load-css("components/header");
   @include meta.load-css("components/footer");
   @include meta.load-css("components/newsletter");
+  @include meta.load-css("components/page-header");
+  @include meta.load-css("components/speakers");
+  @include meta.load-css("components/speaker");
 }

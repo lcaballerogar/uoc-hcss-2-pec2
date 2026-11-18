@@ -1,0 +1,30 @@
+/*------------------------------------*\
+  #PAGE-HEADER
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Page title and optional intro. From the lg breakpoint they use the same
+ * three columns as the speaker grid, so the intro lines up with the second
+ * column of cards.
+ */
+
+.c-page-header {
+  margin-block-end: variables.$spacing-6;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: variables.$spacing-grid-gap;
+    align-items: last baseline;
+  }
+}
+
+.c-page-header__title {
+  margin-block-end: 0;
+}
+
+.c-page-header__intro {
+  margin-block-end: 0;
+}

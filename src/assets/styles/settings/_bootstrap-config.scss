@@ -24,6 +24,9 @@
  * 8. Form labels in secondary text, as in the designs.
  * 9. Bootstrap's default checkbox border is a translucent grey (about
  *    1.4:1 on white). WCAG 1.4.11 asks for 3:1 on form controls.
+ * 10. Speaker cards: no border, grey background and the design's 12px
+ *     inner spacing.
+
  */
 
 $config: (
@@ -36,6 +39,10 @@ $config: (
   "headings-font-weight": variables.$font-weight-regular,
   "focus-ring-width": 0, /* [3] */
   "nav-link-focus-box-shadow": none, /* [3] */
+  "card-border-width": 0, /* [10] */
+  "card-bg": variables.$color-background-card, /* [10] */
+  "card-spacer-x": variables.$spacing-card, /* [10] */
+  "card-spacer-y": variables.$spacing-card, /* [10] */
   "navbar-padding-y": 0, /* [5] */
   "navbar-brand-padding-y": 0, /* [5] */
   "form-label-color": variables.$color-text-secondary, /* [8] */

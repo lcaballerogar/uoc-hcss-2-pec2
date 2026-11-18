@@ -1,0 +1,20 @@
+/*------------------------------------*\
+  #PAGE
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Page container for the main content of every page: side gutters and the
+ * large space under the header. It sets no colors or typography, only
+ * spacing, so it can wrap any content.
+ */
+
+.o-page {
+  padding-block: variables.$spacing-6;
+  padding-inline: variables.$spacing-page-inline;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    padding-block: variables.$spacing-page-top;
+  }
+}

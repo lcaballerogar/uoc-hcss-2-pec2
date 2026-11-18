@@ -1,0 +1,59 @@
+/*------------------------------------*\
+  #SPEAKER
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Speaker card, built on Bootstrap's card (colors and spacing set through
+ * its Sass variables in settings/_bootstrap-config.scss).
+ *
+ * 1. Cards in the same row match the height of the tallest one.
+ * 2. The role comes after the name in the HTML, so it is read as
+ *    "name, role". It is placed over the portrait, in the top left corner
+ *    of the card (Bootstrap's .card is position: relative).
+ * 3. Paragraph color comes from the elements layer (grey 600), which does
+ *    not reach 4.5:1 on the card background.
+ * 4. Container query on the "speaker" container (components/_speakers.scss):
+ *    when the card is wide (one card per row on a wide phone or a small
+ *    tablet), the portrait moves to the left.
+ */
+
+.c-speaker {
+  block-size: 100%; /* [1] */
+
+  @container speaker (width >= 30rem) {
+    flex-direction: row; /* [4] */
+  }
+}
+
+.c-speaker__portrait {
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+
+  @container speaker (width >= 30rem) {
+    inline-size: 45%; /* [4] */
+  }
+}
+
+.c-speaker__role { /* [2] */
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  padding-block: variables.$spacing-tag-block;
+  padding-inline: variables.$spacing-tag-inline;
+  margin: 0;
+  font-size: variables.$font-size-xs;
+  color: variables.$color-text-primary;
+  background-color: variables.$color-background-tag;
+}
+
+.c-speaker__name {
+  font-size: variables.$font-size-xl;
+}
+
+.c-speaker__bio {
+  color: variables.$color-text-secondary-on-muted; /* [3] */
+}
