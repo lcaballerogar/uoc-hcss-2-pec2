@@ -100,7 +100,6 @@ $color-text-primary: $color-neutral-950;
 $color-text-secondary: $color-neutral-600;           // on white only: 4.74:1
 $color-text-secondary-on-muted: $color-neutral-700;  // on grey 100/200: 6.45:1 and 5.72:1
 
-
 $color-text-inverse: $color-neutral-0;
 
 // Color: accents, one per section of the site
@@ -136,6 +135,7 @@ $spacing-table-cell: $spacing-3;
 $spacing-table-head-block: $spacing-1;
 $spacing-section: $spacing-24;
 $spacing-layout-gap: $spacing-5;
+$spacing-content-block: $spacing-6;
 
 // Borders
 $border-divider: $border-width-thick solid $color-text-primary;
@@ -143,3 +143,7 @@ $border-divider: $border-width-thick solid $color-text-primary;
 // Sizes
 $size-control-min-height: $size-10;
 $size-table-row-min-height: 7.5rem;   // 120px
+
+// Line height
+$line-height-relaxed: 1.4;
+

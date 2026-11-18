@@ -1,0 +1,109 @@
+/*------------------------------------*\
+  #ARTICLE-CONTENT
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Body text of an article, written as plain HTML (paragraphs, headings,
+ * lists, quotes and figures without classes), as it would come from a
+ * content editor.
+ *
+ * This is the only component allowed to use element selectors
+ * (see the override in .stylelintrc). They are always scoped to
+ * .c-article-content and wrapped in :where(), which adds no specificity:
+ * every rule weighs the same as the single .c-article-content class
+ * (0,1,0), so any component class placed inside can still override them.
+ *
+ * 1. Content text in secondary grey (on white only). It is set on the
+ *    container so list items and other blocks get it too, not only the
+ *    paragraphs, which already have it from the elements layer.
+ * 2. Flow spacing: space only between consecutive top-level blocks, never
+ *    before the first or after the last one, and not inside lists.
+ * 3. Two kinds of figure, told apart by their content with :has(), not by
+ *    a class: a figure that holds a quote, and a figure that holds an
+ *    image.
+ * 4. Quotation marks added by CSS, so the HTML keeps only the quoted
+ *    words. The dash before the source is also decorative. Pseudo-elements
+ *    go outside :where(), which only accepts elements.
+ * 5. Typography of the site: sans for running text, serif for headings
+ *    and quotes. The article content inherits the sans family from the
+ *    page.
+ */
+
+.c-article-content {
+  line-height: variables.$line-height-relaxed;
+  color: variables.$color-text-secondary; /* [1] */
+}
+
+.c-article-content :where(p) {
+  margin: 0;
+}
+
+.c-article-content > :where(* + *) {
+  margin-block-start: variables.$spacing-paragraph; /* [2] */
+}
+
+.c-article-content :where(h2, h3) {
+  margin-block: variables.$spacing-content-block 0;
+  font-family: variables.$font-family-sans;
+  color: variables.$color-text-primary;
+}
+
+.c-article-content :where(ol, ul) {
+  padding-inline-start: variables.$spacing-6;
+  margin-block-end: 0;
+}
+
+.c-article-content :where(strong) {
+  color: variables.$color-text-primary;
+}
+
+.c-article-content :where(figure) {
+  margin-block-end: 0;
+  margin-inline: 0;
+}
+
+.c-article-content :where(figure:has(> blockquote)) { /* [3] */
+  font-family: variables.$font-family-serif; /* [5] */
+  font-size: variables.$font-size-xl;
+  line-height: variables.$line-height-tight;
+  color: variables.$color-text-primary;
+}
+
+.c-article-content :where(blockquote) {
+  margin: 0;
+  font-style: italic;
+  quotes: "“" "”"; /* [4] */
+}
+
+.c-article-content :where(blockquote p)::before {
+  content: open-quote; /* [4] */
+}
+
+.c-article-content :where(blockquote p)::after {
+  content: close-quote; /* [4] */
+}
+
+.c-article-content :where(figure:has(> blockquote) figcaption) {
+  margin-block-start: 0;
+}
+
+.c-article-content :where(figure:has(> blockquote) figcaption)::before {
+  content: "— "; /* [4] */
+}
+
+.c-article-content :where(figure:has(> img, > picture)) { /* [3] */
+  margin-block: variables.$spacing-content-block;
+}
+
+.c-article-content :where(figure:has(> img, > picture) img) {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.c-article-content :where(figure:has(> img, > picture) figcaption) {
+  margin-block-start: variables.$spacing-2;
+  font-size: variables.$font-size-xs;
+}

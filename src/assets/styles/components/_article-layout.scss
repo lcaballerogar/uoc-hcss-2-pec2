@@ -21,6 +21,8 @@
  *    of moving the others up.
  * 4. Full bleed: the hero cancels the side margins of .o-page and reaches
  *    both edges of the viewport.
+ * 5. The hero keeps the 12:5 proportion of the design (1440 × 600) at any
+ *    width, cropping the photo instead of stretching it.
  */
 
 .c-article-layout {
@@ -46,6 +48,14 @@
 .c-article-layout__hero {
   grid-column: 1 / -1;
   margin-inline: calc(-1 * variables.$spacing-page-inline); /* [4] */
+}
+
+.c-article-layout__hero-image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 12 / 5; /* [5] */
+  object-fit: cover;
 }
 
 .c-article-layout__footer {

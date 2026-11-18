@@ -1,0 +1,34 @@
+/*------------------------------------*\
+  #ARTICLE-HEADER
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Header of an article: title, byline, date and topics.
+ *
+ * 1. The title uses the serif family, like the article text.
+ */
+
+.c-article-header__title {
+  margin-block-end: variables.$spacing-2;
+  font-family: variables.$font-family-serif; /* [1] */
+}
+
+.c-article-header__byline {
+  margin-block-end: variables.$spacing-6;
+  font-size: variables.$font-size-xl;
+}
+
+.c-article-header__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: variables.$spacing-4 variables.$spacing-24;
+  align-items: center;
+}
+
+.c-article-header__date {
+  margin: 0;
+  font-size: variables.$font-size-xs;
+  color: variables.$color-text-primary;
+}

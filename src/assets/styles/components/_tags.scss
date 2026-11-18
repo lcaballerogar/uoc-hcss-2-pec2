@@ -1,0 +1,25 @@
+/*------------------------------------*\
+  #TAGS
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * List of topics shown as small grey labels.
+ */
+
+.c-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: variables.$spacing-2;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.c-tags__item {
+  padding-block: variables.$spacing-tag-block;
+  padding-inline: variables.$spacing-tag-inline;
+  font-size: variables.$font-size-xs;
+  background-color: variables.$color-background-tag;
+}

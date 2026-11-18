@@ -11,23 +11,28 @@
   <body>
     <include src="./views/header.html" locals='{"page": "article"}'></include>
 
-        <main id="main-content" class="o-page o-layout c-article-layout">
+    <main id="main-content" class="o-page o-layout c-article-layout">
       <article class="c-article-layout__article" aria-labelledby="article-title">
-        <header class="c-article-layout__header">
-          <h1 id="article-title">Annotation opens the call for the first Alvera Short Story Prize</h1>
-          <p>By Clara Ferrer, Annotation press team</p>
-          <p><time datetime="2027-01-12">12 January 2027</time></p>
-          <ul aria-label="Topics">
-            <li>News</li>
-            <li>Prize</li>
-            <li>Short stories</li>
-            <li>Call for entries</li>
-          </ul>
+        <header class="c-article-layout__header c-article-header">
+          <h1 class="c-article-header__title" id="article-title">Annotation opens the call for the first Alvera Short Story Prize</h1>
+          <p class="c-article-header__byline">By Clara Ferrer, Annotation press team</p>
+          <div class="c-article-header__meta">
+            <p class="c-article-header__date"><time datetime="2027-01-12">12 January 2027</time></p>
+            <ul class="c-tags" aria-label="Topics">
+              <li class="c-tags__item">News</li>
+              <li class="c-tags__item">Prize</li>
+              <li class="c-tags__item">Short stories</li>
+              <li class="c-tags__item">Call for entries</li>
+            </ul>
+          </div>
         </header>
 
-        <!-- Photo 1 (full width, class="c-article-layout__hero"): hands writing in a notebook next to an open book -->
+        <picture class="c-article-layout__hero">
+          <source type="image/webp" srcset="./assets/images/article/hero.jpg?as=webp&width=960 960w, ./assets/images/article/hero.jpg?as=webp&width=1440 1440w, ./assets/images/article/hero.jpg?as=webp&width=1920 1920w, ./assets/images/article/hero.jpg?as=webp&width=2880 2880w" sizes="100vw" />
+          <img class="c-article-layout__hero-image" src="./assets/images/article/hero.jpg?width=1440" srcset="./assets/images/article/hero.jpg?width=960 960w, ./assets/images/article/hero.jpg?width=1440 1440w, ./assets/images/article/hero.jpg?width=1920 1920w, ./assets/images/article/hero.jpg?width=2880 2880w" sizes="100vw" alt="Hands writing in a notebook next to an open book." width="2880" height="1620" fetchpriority="high" />
+        </picture>
 
-        <div class="c-article-layout__body">
+        <section class="c-article-layout__body c-article-content">
           <figure>
             <blockquote>
               <p>We want to read the stories that are still waiting in notebooks, on phones and in the margins of other books.</p>
@@ -44,7 +49,10 @@
             <li><strong>Send it online.</strong> Fill in the entry form on the festival website and upload your story as a PDF. You will receive a confirmation email within 48 hours.</li>
           </ol>
 
-          <!-- Photo 2, caption: Alvera Public Library's reading room, where most of the festival talks will take place. -->
+          <figure>
+            <img src="./assets/images/article/reading-room.jpg" alt="Long wooden tables and tall bookshelves in a quiet library reading room." width="1400" height="810" />
+            <figcaption>Alvera Public Library's reading room, where most of the festival talks will take place.</figcaption>
+          </figure>
 
           <h2>Five readers, one decision</h2>
           <p>A jury of five will read every story: editor Martina Coll, novelist Ines Varela Roig, translator Noor Haddad, a librarian from Alvera Public Library and a reader chosen by lottery among the library's members. The last seat is the jury's favourite tradition already, even before the first edition.</p>
@@ -59,7 +67,7 @@
           </ul>
 
           <p>For the first time, the festival will also offer two free online sessions for participants. On <time datetime="2027-01-25">25 January</time> and <time datetime="2027-02-08">8 February 2027</time>, Tomás Ebrard will answer questions about short story structure and editing a final draft.</p>
-        </div>
+        </section>
 
         <footer class="c-article-layout__footer">
           <div class="c-article-layout__info">

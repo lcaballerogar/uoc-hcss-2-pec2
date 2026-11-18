@@ -48,7 +48,10 @@
  * Speakers.............Speaker grid (Flexbox).
  * Speaker..............Speaker card (Bootstrap card, container query).
  * Programme............Festival programme table.
-* Article-layout........Article page grid (12 columns, subgrid).
+ * Article-layout........Article page grid (12 columns, subgrid).
+ * Article-header.......Article title, byline, date and topics.
+ * Tags.................Topic labels.
+ * Article-content......Long-form text in plain HTML (:where(), :has()).
  *
  * UTILITIES
  * (none yet)
@@ -145,4 +148,7 @@
   @include meta.load-css("components/speaker");
   @include meta.load-css("components/programme");
   @include meta.load-css("components/article-layout");
+  @include meta.load-css("components/article-header");
+  @include meta.load-css("components/tags");
+  @include meta.load-css("components/article-content");
 }
