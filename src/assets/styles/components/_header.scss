@@ -3,22 +3,28 @@
 \*------------------------------------*/
 
 @use "../settings/variables";
+@use "../tools/functions";
 
 /**
- * Site header and main navigation, built on Bootstrap's navbar.
- * Bootstrap classes give structure and the collapse behaviour; c-header
- * classes are the hooks for project styles.
+ * Site header and main navigation, built on Bootstrap's navbar
+ * (navbar-expand-lg). Bootstrap classes give structure and the collapse
+ * behaviour; c-header classes are the hooks for project styles.
+ * Mobile first: the base rules are the small-screen bar with a drop-down
+ * menu; the desktop navigation starts at the lg breakpoint, where all the
+ * links fit in one row next to the wordmark.
  *
  * 1. Each link sets its section color in local custom properties.
  *    One shared rule applies them, so the state is defined once.
  * 2. The current page is marked with aria-current, not with Bootstrap's
  *    .active class, so the state is the same for CSS and assistive tech.
- *    It looks the same as hover.
- * 3. Same box for navigation links and the call to action: 40px minimum
- *    height and the label centered. min-block-size, not block-size, so the
- *    box can grow if the text wraps or is zoomed instead of clipping it.
- *    Bootstrap buttons use a taller line height (1.5) than the page (1.2);
- *    without resetting it, the call to action would measure 42px.
+ * 3. Same box for the toggler, the links and the call to action: 40px
+ *    minimum height and the label centered. min-block-size, not
+ *    block-size, so the box can grow if the text wraps or is zoomed instead
+ *    of clipping it. Bootstrap buttons use a taller line height (1.5) than
+ *    the page (1.2); without resetting it, they would measure 42px.
+ * 4. The call to action is always pink. These rules sit in a higher cascade
+ *    layer than Bootstrap, so they also win over its :hover, :focus-visible
+ *    and :active button styles.
  * 5. The header stays at the top (Bootstrap's sticky-top utility in the
  *    HTML) and needs a background so page content scrolls under it.
  *    When the menu is hidden (see [6]), the background goes, so the
@@ -26,10 +32,34 @@
  * 6. main.js adds the inert attribute to the menu while the footer fills
  *    the top of the viewport. inert takes it out of the focus order and the
  *    accessibility tree; these rules hide it visually.
- * 7. Fade only for users who have not asked for reduced motion.
+ * 7. Animations only for users who have not asked for reduced motion.
+ * 8. Small screens: a bar with two halves, the menu button and the call to
+ *    action. The source order is wordmark, button, menu, call to action, so
+ *    the menu comes right after the button that opens it in the focus
+ *    order; the grid places the call to action next to the button.
+ * 9. Small screens: the wordmark is hidden (the menu has a Home link
+ *    instead, and the front page poster shows the wordmark). On desktop the
+ *    wordmark is the link to the front page, so the Home link is hidden.
+ * 10. Small screens: the open menu takes a second row of the grid, below
+ *     the bar, so it pushes the page down (Bootstrap's default behaviour)
+ *     instead of covering the content. The call to action is placed in
+ *     the first row explicitly; without it, auto-placement would put it
+ *     after the menu, in a third row.
+ * 11. Plus icon (Remix Icon) as a CSS mask, in the text color. It turns 45
+ *     degrees into a cross when the menu is open; Bootstrap keeps
+ *     aria-expanded up to date, so the state comes from the same attribute
+ *     that assistive tech announces.
+ * 12. Small screens: the links always show their section color. Desktop:
+ *     the color only appears on hover and on the current page.
+ * 13. The toggler sets its own display, which wins over Bootstrap's rule
+ *     that hides it on wide screens (Bootstrap is in a lower layer), so it
+ *     is hidden again here.
+ * 14. Small screens: narrower side padding, so "Register for the event"
+ *     fits on one line in half the width of a phone (from 360px). It can
+ *     still wrap on narrower screens or if the text is zoomed.
  */
 
- .c-header {
+.c-header {
   background-color: variables.$color-background-primary; /* [5] */
 
   &:has([inert]) {
@@ -41,14 +71,23 @@
   }
 }
 
-.c-header__menu {
-  &[inert] {
-    visibility: hidden; /* [6] */
-    opacity: 0; /* [6] */
-  }
+.c-header__nav { /* [8] */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0;
 
-  @media (prefers-reduced-motion: no-preference) {
-    transition: opacity 0.2s, visibility 0.2s; /* [7] */
+  @media (min-width: variables.$breakpoint-lg) {
+    display: flex;
+  }
+}
+
+.c-header__brand {
+  display: none; /* [9] */
+  padding-block: 0;
+  margin-inline-end: 0;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    display: block; /* [9] */
   }
 }
 
@@ -58,9 +97,11 @@
   block-size: variables.$size-control-min-height;
 }
 
+.c-header__toggler,
 .c-header__link,
 .c-header__cta { /* [3] */
   display: flex;
+  gap: variables.$spacing-2;
   align-items: center;
   min-block-size: variables.$size-control-min-height;
   padding-block: variables.$spacing-control-block;
@@ -68,15 +109,64 @@
   line-height: variables.$line-height-tight;
 }
 
+.c-header__toggler {
+  justify-content: space-between;
+  font-size: inherit;
+  color: variables.$color-text-primary;
+  background-color: variables.$color-background-primary;
+  border: 0;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    display: none; /* [13] */
+  }
+}
+
+.c-header__toggler-icon { /* [11] */
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  background-color: currentcolor;
+  mask: functions.icon("System", "add-line") center / contain no-repeat;
+
+  [aria-expanded="true"] > & {
+    rotate: 45deg;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: rotate 0.2s; /* [7] */
+  }
+}
+
+.c-header__menu {
+  grid-row: 2; /* [10] */
+  grid-column: 1 / -1;
+
+  &[inert] {
+    visibility: hidden; /* [6] */
+    opacity: 0; /* [6] */
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: opacity 0.2s, visibility 0.2s; /* [7] */
+  }
+
+  @media (min-width: variables.$breakpoint-lg) {
+    justify-content: flex-end;
+  }
+}
+
+.c-header__home {
+  @media (min-width: variables.$breakpoint-lg) {
+    display: none; /* [9] */
+  }
+}
+
 .c-header__link {
-  --link-accent: transparent; /* [1] */
+  --link-accent: #{variables.$color-background-primary}; /* [1] */
   --link-accent-text: #{variables.$color-text-primary}; /* [1] */
 
-  &:hover,
-  &[aria-current="page"] { /* [2] */
-    color: var(--link-accent-text);
-    background-color: var(--link-accent);
-  }
+  padding-inline: variables.$spacing-page-inline;
+  color: var(--link-accent-text); /* [12] */
+  background-color: var(--link-accent); /* [12] */
 
   &--speakers {
     --link-accent: #{variables.$color-accent-speakers};
@@ -90,10 +180,35 @@
     --link-accent: #{variables.$color-accent-blog};
     --link-accent-text: #{variables.$color-text-inverse};
   }
+
+  @media (min-width: variables.$breakpoint-lg) {
+    padding-inline: variables.$spacing-control-inline;
+    color: variables.$color-text-primary; /* [12] */
+    background-color: transparent; /* [12] */
+
+    &:hover,
+    &[aria-current="page"] { /* [2] [12] */
+      color: var(--link-accent-text);
+      background-color: var(--link-accent);
+    }
+  }
 }
 
-.c-header__cta { /* [3] */
+.c-header__cta { /* [4] */
+  grid-row: 1; /* [10] */
+  grid-column: 2;
+  justify-content: center;
+  padding-inline: variables.$spacing-page-inline; /* [14] */
   color: variables.$color-cta-text;
   background-color: variables.$color-cta-background;
   border-color: variables.$color-cta-background;
+
+  &[inert] {
+    visibility: hidden; /* [6] */
+    opacity: 0; /* [6] */
+  }
+
+  @media (min-width: variables.$breakpoint-lg) {
+    padding-inline: variables.$spacing-control-inline;
+  }
 }

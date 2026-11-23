@@ -1,22 +1,25 @@
 <a class="visually-hidden-focusable" href="#main-content">Skip to main content</a>
 
 <header class="c-header sticky-top">
-  <nav class="navbar navbar-expand-md" aria-label="Main">
+  <nav class="navbar navbar-expand-lg c-header__nav" aria-label="Main">
     <a class="navbar-brand c-header__brand" href="./index.html">
       <img class="c-header__logo" src="./assets/images/annotation-bold.svg" alt="Annotation" width="312" height="40" />
     </a>
 
-    <button class="navbar-toggler c-header__menu js-header-menu" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Menu">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler c-header__toggler js-header-menu" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false">
+      Menu
+      <span class="c-header__toggler-icon" aria-hidden="true"></span>
     </button>
 
     <div class="collapse navbar-collapse c-header__menu js-header-menu" id="main-nav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav c-header__list">
+        <li class="nav-item c-header__home"><a class="nav-link c-header__link" href="./index.html" aria-current="{{ page === 'index' ? 'page' : 'false' }}">Home</a></li>
         <li class="nav-item"><a class="nav-link c-header__link c-header__link--speakers" href="./speakers.html" aria-current="{{ page === 'speakers' ? 'page' : 'false' }}">Speakers</a></li>
         <li class="nav-item"><a class="nav-link c-header__link c-header__link--programme" href="./programme.html" aria-current="{{ page === 'programme' ? 'page' : 'false' }}">Programme</a></li>
         <li class="nav-item"><a class="nav-link c-header__link c-header__link--blog" href="./article.html" aria-current="{{ page === 'article' ? 'page' : 'false' }}">Blog</a></li>
-        <li class="nav-item"><a class="btn c-header__cta" href="#">Register for the event</a></li>
       </ul>
     </div>
+
+    <a class="btn c-header__cta js-header-menu" href="#">Register for the event</a>
   </nav>
 </header>
