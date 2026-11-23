@@ -1,0 +1,243 @@
+/*------------------------------------*\
+  #POSTER
+\*------------------------------------*/
+
+@use "../settings/variables";
+@use "../tools/functions";
+
+/**
+ * Front page poster: text blocks placed freely on a 12 × 12 modular grid,
+ * over a photo of the sky.
+ *
+ * 1. The poster is a size container named "poster". The grid layout is a
+ *    container query, so it depends on the width of the poster.
+ * 2. isolation creates a stacking context, so the photo (z-index -1) stays
+ *    behind the text but in front of the page background.
+ * 3. Fallback, and layout for narrow posters: the blocks stack in source
+ *    order, each as wide as its content.
+ * 4. @supports: the modular grid only applies where CSS Grid is supported.
+ *    12 columns like the rest of the site, and 12 rows that share the height
+ *    of the viewport.
+ * 5. Blocks overlap on purpose (the dates over the end of the title), as in
+ *    a printed poster. Later blocks in the HTML sit on top.
+ * 6. The title is the wordmark SVG: it fills the width of its grid area
+ *    (columns 1 to 8; the whole width on narrow posters) and keeps its
+ *    proportion. On very wide, short screens it is capped at 22% of the
+ *    viewport height, so the line above it stays below the header. As an
+ *    image, its size does not change while the fonts load.
+ * 7. The links reach the right edge of the viewport.
+ * 8. Arrow icon (Remix Icon) as a CSS mask, in the text color.
+ * 9. On wide screens the poster fills the whole viewport (100svh), starting
+ *    at the top of the page behind the sticky header, as in the design.
+ *    svh is the height with the browser bars visible, so the poster never
+ *    ends under them. The height is fixed (block-size, not min-block-size)
+ *    so the 12 rows always share it equally. The negative margin is a media
+ *    query because an element cannot query its own container; the poster is
+ *    as wide as the viewport, so both conditions match.
+ */
+
+.c-poster {
+  position: relative;
+  container: poster / inline-size; /* [1] */
+  isolation: isolate; /* [2] */
+
+  @media (min-width: variables.$breakpoint-lg) {
+    margin-block-start: calc(-1 * #{variables.$size-header}); /* [9] */
+  }
+}
+
+.c-poster__background {
+  position: absolute;
+  inset: 0;
+  z-index: -1; /* [2] */
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.c-poster__grid {
+  display: flex; /* [3] */
+  flex-direction: column;
+  gap: variables.$spacing-layout-gap;
+  align-items: flex-start;
+  padding: variables.$spacing-page-inline;
+}
+
+.c-poster__grid > * {
+  margin: 0;
+}
+
+.c-poster__heading {
+  display: flex;
+  flex-direction: column;
+  gap: variables.$spacing-layout-gap;
+  align-items: flex-start;
+  align-self: stretch; /* [6] */
+}
+
+.c-poster__eyebrow {
+  margin: 0;
+  font-size: variables.$font-size-xl;
+  color: variables.$color-text-primary;
+}
+
+.c-poster__title {
+  align-self: stretch; /* [6] */
+  margin: 0;
+}
+
+.c-poster__wordmark { /* [6] */
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  max-block-size: 22svh;
+  object-fit: contain;
+  object-position: left bottom;
+}
+
+.c-poster__dates {
+  padding: variables.$spacing-poster-box;
+  font-size: variables.$font-size-3xl;
+  line-height: variables.$line-height-tight;
+  color: variables.$color-text-inverse;
+  background-color: variables.$color-poster-dates;
+}
+
+.c-poster__subtitle {
+  display: flex;
+  flex-direction: column;
+  padding: variables.$spacing-poster-box;
+  font-size: variables.$font-size-xl;
+  color: variables.$color-text-inverse;
+  background-color: variables.$color-background-inverse;
+}
+
+.c-poster__tagline {
+  font-family: variables.$font-family-serif;
+  font-style: italic;
+}
+
+.c-poster__venue {
+  padding: variables.$spacing-poster-box;
+  font-size: variables.$font-size-xl;
+  color: variables.$color-text-primary;
+  background-color: variables.$color-poster-venue;
+}
+
+.c-poster__intro {
+  padding: variables.$spacing-poster-box;
+  font-size: variables.$font-size-l;
+  color: variables.$color-text-primary;
+  background-color: variables.$color-background-primary;
+}
+
+.c-poster__list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.c-poster__link {
+  display: flex;
+  gap: variables.$spacing-2;
+  align-items: center;
+  padding: variables.$spacing-poster-box;
+  font-size: variables.$font-size-l;
+  color: variables.$color-text-primary;
+  text-decoration: none;
+
+  &::after { /* [8] */
+    display: inline-block;
+    inline-size: 1em;
+    block-size: 1em;
+    content: "";
+    background-color: currentcolor;
+    mask: functions.icon("Arrows", "arrow-right-line") center / contain no-repeat;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &--speakers {
+    background-color: variables.$color-poster-speakers;
+  }
+
+  &--programme {
+    background-color: variables.$color-poster-programme;
+  }
+
+  &--article {
+    color: variables.$color-text-inverse;
+    background-color: variables.$color-poster-article;
+  }
+}
+
+.c-poster__callouts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.c-poster__free,
+.c-poster__prize {
+  margin: 0;
+}
+
+.c-poster__free {
+  padding: variables.$spacing-poster-box;
+  font-size: variables.$font-size-l;
+  color: variables.$color-text-primary;
+  background-color: variables.$color-poster-free;
+}
+
+.c-poster__prize {
+  padding: variables.$spacing-poster-box;
+  color: variables.$color-text-primary;
+  background-color: variables.$color-background-primary;
+}
+
+@supports (display: grid) { /* [4] */
+  @container poster (width >= 62rem) { /* [1] */
+    .c-poster__grid {
+      display: grid;
+      grid-template-rows: repeat(variables.$grid-columns, minmax(0, 1fr));
+      grid-template-columns: repeat(variables.$grid-columns, minmax(0, 1fr));
+      align-items: start;
+      block-size: 100svh; /* [9] */
+    }
+
+    .c-poster__heading {
+      grid-area: 2 / 1 / 5 / 9; /* [5] [6] */
+      align-self: end;
+    }
+
+    .c-poster__dates {
+      grid-area: 4 / 8 / 5 / 12; /* [5] */
+      justify-self: start;
+    }
+
+    .c-poster__subtitle {
+      grid-area: 5 / 2 / 6 / 6;
+      justify-self: start;
+    }
+
+    .c-poster__venue {
+      grid-area: 6 / 6 / 7 / 11;
+      justify-self: start;
+    }
+
+    .c-poster__intro {
+      grid-area: 8 / 2 / 10 / 7;
+    }
+
+    .c-poster__links {
+      grid-area: 9 / 8 / 11 / -1;
+      margin-inline-end: calc(-1 * variables.$spacing-page-inline); /* [7] */
+    }
+
+    .c-poster__callouts {
+      grid-area: 11 / 3 / 13 / 8;
+    }
+  }
+}

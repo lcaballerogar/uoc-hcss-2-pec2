@@ -47,13 +47,17 @@ $font-family-serif: "Sentient", georgia, serif;
 $font-size-xs: 0.875rem;  // 14px
 $font-size-s: 1rem;       // 16px
 $font-size-m: 1.125rem;   // 18px
+$font-size-l: 1.25rem;    // 20px
 $font-size-xl: 1.5rem;    // 24px
 $font-size-2xl: 2rem;     // 32px
+$font-size-3xl: 2.5rem;   // 40px
 $font-size-4xl: 3rem;     // 48px
 
 $font-weight-regular: 400;
+$font-weight-black: 900;
 
 $line-height-tight: 1.2;
+$line-height-display: 0.8;
 
 // Primitives: spacing: n × 4px, named after n
 $spacing-1: 0.25rem;      // 4px
@@ -110,6 +114,14 @@ $color-accent-speakers: $color-yellow-500;    // with text-primary: 15.18:1
 $color-accent-programme: $color-blue-400;     // with text-primary: 5.79:1
 $color-accent-blog: $color-brown-800;         // with text-inverse: 6.23:1
 
+// Color: poster (front page)
+$color-poster-dates: $color-brown-800;           // with text-inverse: 6.23:1
+$color-poster-venue: $color-blue-300;            // with text-primary: 6.65:1
+$color-poster-speakers: $color-yellow-300;       // with text-primary: 15.9:1
+$color-poster-programme: $color-blue-300;        // with text-primary: 6.65:1
+$color-poster-article: $color-brown-800;         // with text-inverse: 6.23:1
+$color-poster-free: $color-yellow-300;           // with text-primary: 15.9:1
+
 // Color: call to action
 $color-cta-background: $color-pink-500;       // with text-primary: 5.97:1
 $color-cta-text: $color-text-primary;
@@ -137,17 +149,20 @@ $spacing-tag-inline: $spacing-2;
 $spacing-table-cell: $spacing-3;
 $spacing-table-head-block: $spacing-1;
 $spacing-section: $spacing-24;
-$spacing-layout-gap: $spacing-5;
+$spacing-layout-gap: $spacing-3;
 $spacing-content-block: $spacing-6;
 $spacing-box: $spacing-7;
 $spacing-list-gap: $spacing-2;
+$spacing-poster-box: $spacing-3;
 
 // Borders
 $border-divider: $border-width-thick solid $color-text-primary;
 
 // Sizes
 $size-control-min-height: $size-10;
-$size-table-row-min-height: 7.5rem;   // 120px
+$size-header: $size-control-min-height;  // the header is as tall as its controls
+$size-table-row-min-height: 7.5rem;      // 120px
+$size-poster-min-height: 56rem;          // 896px
 
 // Line height
 $line-height-relaxed: 1.4;

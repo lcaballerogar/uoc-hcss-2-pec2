@@ -11,8 +11,35 @@
   <body>
     <include src="./views/header.html" locals='{"page": "index"}'></include>
 
-    <main id="main-content">
-      <h1>Annotation</h1>
+    <main id="main-content" class="c-poster">
+      <img class="c-poster__background" src="./assets/images/home/sky.jpg?width=1440" srcset="./assets/images/home/sky.jpg?width=960 960w, ./assets/images/home/sky.jpg?width=1440 1440w, ./assets/images/home/sky.jpg?width=2880 2880w" sizes="100vw" alt="" width="2880" height="2048" fetchpriority="high" />
+
+      <div class="c-poster__grid">
+                <hgroup class="c-poster__heading">
+          <p class="c-poster__eyebrow">Alvera City Council presents:</p>
+          <h1 class="c-poster__title">
+            <img class="c-poster__wordmark" src="./assets/images/annotation-bold.svg" alt="Annotation" width="312" height="40" />
+          </h1>
+        </hgroup>
+        <p class="c-poster__dates"><time datetime="2027-04-22">22</time>–<time datetime="2027-04-25">25 April 2027</time></p>
+        <p class="c-poster__subtitle">
+          <span class="c-poster__name">Alvera Literary Days</span>
+          <span class="c-poster__tagline">Stories begin in the margins.</span>
+        </p>
+        <p class="c-poster__venue">Alvera Public Library &amp; Old Tobacco Factory</p>
+        <p class="c-poster__intro">Four days of talks, workshops and readings for anyone who writes, reads or simply loves a good story. Join authors, editors and translators, and send us your story for the first Alvera Short Story Prize.</p>
+        <nav class="c-poster__links" aria-label="Explore the festival">
+          <ul class="c-poster__list">
+            <li><a class="c-poster__link c-poster__link--speakers" href="./speakers.html">Meet the speakers</a></li>
+            <li><a class="c-poster__link c-poster__link--programme" href="./programme.html">See the programme</a></li>
+            <li><a class="c-poster__link c-poster__link--article" href="./article.html">Read the call for entries</a></li>
+          </ul>
+        </nav>
+        <div class="c-poster__callouts">
+          <p class="c-poster__free">Free entry</p>
+          <p class="c-poster__prize">€1,500 short story prize — entries close <time datetime="2027-02-28">28 February 2027</time></p>
+        </div>
+      </div>
     </main>
 
     <include src="./views/footer.html"></include>
