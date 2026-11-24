@@ -16,7 +16,7 @@
 .c-page-header {
   display: grid;
   gap: variables.$spacing-grid-gap;
-  align-items: baseline;
+  align-items: last baseline;
   margin-block-end: variables.$spacing-6;
 
   @media (min-width: variables.$breakpoint-lg) {
