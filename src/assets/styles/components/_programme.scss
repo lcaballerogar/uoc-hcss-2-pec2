@@ -8,8 +8,8 @@
 /**
  * Festival programme table.
  *
- * 1. Full bleed: the table cancels the side gutters of .o-page, so it
- *    reaches both edges of the viewport, as in the design.
+ * 1. Full bleed: the wrapper cancels the side gutters of .o-page, so the
+ *    table reaches both edges of the viewport, as in the design.
  * 2. Each day is a tbody. Its modifier sets the day color in a custom
  *    property, used by the date cell that spans all its rows.
  * 3. Row shades alternate across the whole table. nth-child counts rows
@@ -21,13 +21,44 @@
  *    background-color paints it, so it takes the link color
  *    (currentcolor) in every state. The link's accessible name is the
  *    visually hidden text inside it.
- * 6. A black line separates each day from the previous one, across the
- *    whole table. It belongs to the day (tbody), not to its rows.
+ * 6. A black line separates each day from the previous one. It belongs to
+ *    the day (tbody), not to its rows, and crosses the full width. On
+ *    narrow tables the column headings are hidden, so the table draws the
+ *    same line above the first day.
+ * 7. The wrapper is a size container named "programme", so the table
+ *    adapts to the space it has, not to the viewport. A table cannot be
+ *    its own container: a container query styles the descendants of the
+ *    container, not the container itself.
+ * 8. Narrow tables: the rows stack. The table elements become blocks and
+ *    each row a small grid:
+ *      date date date
+ *      time venue link
+ *      session session link
+ *      speaker speaker link
+ *    Columns are picked with :nth-of-type, which counts only td elements,
+ *    so the date cell at the start of a day does not shift them. It goes
+ *    inside :where(), which adds no specificity, so each selector weighs
+ *    as a single class. The arrow sits in the top right corner, inside the
+ *    row's padding.
+ * 9. Changing the display of table elements makes some browsers drop the
+ *    table semantics, so the HTML repeats them with ARIA roles (table,
+ *    rowgroup, row, columnheader, rowheader, cell).
+ * 10. Narrow tables: the column headings are hidden visually, because each
+ *     value is recognised by its place in the row, but stay for screen
+ *     readers.
+ * 11. The date band reaches the edges of the row (negative margins cancel
+ *     the row's padding) and keeps the row's padding as its own.
+ * 12. Middle dot between time and venue, with an empty alternative text so
+ *     screen readers do not read it.
  */
 
 .c-programme {
-  inline-size: calc(100% + 2 * variables.$spacing-page-inline); /* [1] */
   margin-inline: calc(-1 * variables.$spacing-page-inline); /* [1] */
+  container: programme / inline-size; /* [7] */
+}
+
+.c-programme__table {
+  inline-size: 100%;
 }
 
 .c-programme__head {
@@ -118,5 +149,86 @@
     content: "";
     background-color: currentcolor;
     mask: functions.icon("Arrows", "arrow-right-up-line") center / contain no-repeat;
+  }
+}
+
+@container programme (width < #{variables.$breakpoint-md}) { /* [7] [8] */
+  .c-programme__table,
+  .c-programme__day {
+    display: block;
+  }
+
+  .c-programme__table {
+    border-block-start: variables.$border-divider; /* [6] */
+  }
+
+  .c-programme__head { /* [10] */
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  .c-programme__row { /* [8] */
+    display: grid;
+    grid-template-areas:
+      "date date date"
+      "time venue link"
+      "session session link"
+      "speaker speaker link";
+    grid-template-columns: auto 1fr auto;
+    column-gap: variables.$spacing-1;
+    padding: variables.$spacing-table-cell;
+  }
+
+  .c-programme__date { /* [11] */
+    grid-area: date;
+    margin:
+      calc(-1 * #{variables.$spacing-table-cell})
+      calc(-1 * #{variables.$spacing-table-cell})
+      variables.$spacing-table-cell;
+    font-size: variables.$font-size-xl;
+  }
+
+  .c-programme__cell {
+    block-size: auto;
+    padding: 0;
+  }
+
+  .c-programme__cell:where(:nth-of-type(1)) { /* [8] */
+    grid-area: session;
+    margin-block-start: variables.$spacing-3;
+    font-size: variables.$font-size-m;
+  }
+
+  .c-programme__cell:where(:nth-of-type(2)),
+  .c-programme__cell:where(:nth-of-type(4)) {
+    font-size: variables.$font-size-xs;
+    color: variables.$color-text-secondary-on-muted;
+  }
+
+  .c-programme__cell:where(:nth-of-type(2)) { /* [8] */
+    grid-area: time;
+  }
+
+  .c-programme__cell:where(:nth-of-type(3)) { /* [8] */
+    grid-area: speaker;
+    margin-block-start: variables.$spacing-1;
+    color: variables.$color-text-secondary-on-muted;
+  }
+
+  .c-programme__cell:where(:nth-of-type(4)) { /* [8] */
+    grid-area: venue;
+
+    &::before {
+      content: "· " / ""; /* [12] */
+    }
+  }
+
+  .c-programme__cell--action { /* [8] */
+    grid-area: link;
+    margin-inline-start: variables.$spacing-table-cell;
   }
 }
