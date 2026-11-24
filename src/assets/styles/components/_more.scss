@@ -21,7 +21,11 @@
   gap: variables.$spacing-3;
   align-items: center;
   margin-block-end: variables.$spacing-6;
-  font-size: variables.$font-size-xs;
+  font-size: variables.$font-size-m;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    font-size: variables.$font-size-l;
+  }
 }
 
 .c-more__list {

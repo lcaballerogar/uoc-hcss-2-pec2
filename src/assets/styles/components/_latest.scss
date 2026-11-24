@@ -14,7 +14,11 @@
 
 .c-latest__title {
   margin-block-end: variables.$spacing-4;
-  font-size: variables.$font-size-s;
+  font-size: variables.$font-size-m;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    font-size: variables.$font-size-l;
+  }
 }
 
 .c-latest__list {

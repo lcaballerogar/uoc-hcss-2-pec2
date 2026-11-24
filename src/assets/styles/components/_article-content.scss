@@ -66,7 +66,7 @@
 
 .c-article-content :where(figure:has(> blockquote)) { /* [3] */
   font-family: variables.$font-family-serif; /* [5] */
-  font-size: variables.$font-size-xl;
+  font-size: variables.$font-size-l;
   line-height: variables.$line-height-tight;
   color: variables.$color-text-primary;
 }

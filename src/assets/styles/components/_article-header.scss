@@ -17,7 +17,11 @@
 
 .c-article-header__byline {
   margin-block-end: variables.$spacing-6;
-  font-size: variables.$font-size-xl;
+  font-size: variables.$font-size-m;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    font-size: variables.$font-size-xl;
+  }
 }
 
 .c-article-header__meta {

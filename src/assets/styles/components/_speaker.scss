@@ -51,7 +51,11 @@
 }
 
 .c-speaker__name {
-  font-size: variables.$font-size-xl;
+  font-size: variables.$font-size-l;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    font-size: variables.$font-size-xl;
+  }
 }
 
 .c-speaker__bio {
