@@ -18,8 +18,10 @@
  * 1. Content text in secondary grey (on white only). It is set on the
  *    container so list items and other blocks get it too, not only the
  *    paragraphs, which already have it from the elements layer.
- * 2. Flow spacing: space only between consecutive top-level blocks, never
- *    before the first or after the last one, and not inside lists.
+ * 2. Flow spacing: space only between consecutive blocks, never before
+ *    the first or after the last one, and not inside lists. It applies
+ *    to the top-level blocks and to the blocks inside each section, the
+ *    thematic parts of the article that start with an h2.
  * 3. Two kinds of figure, told apart by their content with :has(), not by
  *    a class: a figure that holds a quote, and a figure that holds an
  *    image.
@@ -40,7 +42,8 @@
   margin: 0;
 }
 
-.c-article-content > :where(* + *) {
+.c-article-content > :where(* + *),
+.c-article-content :where(section > * + *) {
   margin-block-start: variables.$spacing-paragraph; /* [2] */
 }
 
@@ -55,8 +58,12 @@
   margin-block-end: 0;
 }
 
-.c-article-content :where(strong) {
-  color: variables.$color-text-primary;
+.c-article-content :where(li > strong:first-child) {
+  display: block;
+}
+
+.c-article-content :where(li + li) {
+  margin-block-start: variables.$spacing-list-gap;
 }
 
 .c-article-content :where(figure) {
@@ -86,7 +93,10 @@
 }
 
 .c-article-content :where(figure:has(> blockquote) figcaption) {
+  padding-block: variables.$spacing-2;
   margin-block-start: 0;
+  font-family: variables.$font-family-sans;
+  font-size: variables.$font-size-m;
 }
 
 .c-article-content :where(figure:has(> blockquote) figcaption)::before {

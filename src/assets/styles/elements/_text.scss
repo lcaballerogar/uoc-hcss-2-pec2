@@ -1,0 +1,18 @@
+/*------------------------------------*\
+  #TEXT
+\*------------------------------------*/
+
+@use "../settings/variables";
+
+/**
+ * Inline text elements.
+ *
+ * 1. Bootstrap's reboot sets bolder, which turns the regular weight (400)
+ *    into 700. A lighter weight keeps the emphasis without looking as
+ *    heavy; Switzer is a variable font, so any weight is available.
+ */
+
+strong,
+b {
+  font-weight: variables.$font-weight-medium; /* [1] */
+}

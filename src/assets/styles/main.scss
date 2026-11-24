@@ -34,6 +34,7 @@
  * Page.................Base font size, typography and colors for html and body.
  * Headings.............h1 and h2 sizes and weight.
  * Paragraphs...........Reading text color and spacing.
+ * Text.....................Inline text elements: strong, b.
  * Links................Inherited link color and visible keyboard focus.
  *
  * OBJECTS
@@ -120,6 +121,7 @@
   @include meta.load-css("elements/page");
   @include meta.load-css("elements/headings");
   @include meta.load-css("elements/paragraphs");
+  @include meta.load-css("elements/text");
   @include meta.load-css("elements/links");
 }
 
