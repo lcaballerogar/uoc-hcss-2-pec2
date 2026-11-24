@@ -14,6 +14,8 @@
  *    "layout" container: 100cqi minus the 11 gutters, divided into 12
  *    columns, times three, plus the two gutters between them.
  * 3. Scroll snapping: each card stops aligned with the start of the row.
+ * 4. Below lg, a card is 80% of the row on phones, so the next one peeks
+ *    in, but never wider than on a desktop screen.
  */
 
 .c-more__title {
@@ -40,7 +42,7 @@
 }
 
 .c-more__item {
-  flex: 0 0 80%;
+  flex: 0 0 min(80%, #{variables.$size-more-card}); /* [4] */
   scroll-snap-align: start; /* [3] */
 
   @media (min-width: variables.$breakpoint-lg) {
