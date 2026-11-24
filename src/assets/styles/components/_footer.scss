@@ -7,8 +7,9 @@
 /**
  * Site footer: newsletter, festival summary and site information.
  *
- * Mobile first: the three columns stack. From the lg breakpoint they sit
- * side by side and the footer fills the viewport height.
+ * Mobile first: the three parts stack, each with its own minimum height.
+ * From the lg breakpoint they sit side by side and the footer fills at
+ * least the viewport height.
  *
  * 1. svh (small viewport height): the height of the viewport with the
  *    mobile browser bars visible, so the footer never ends under them.
@@ -24,6 +25,10 @@
  * 7. Only the text is inset. The form reaches the edges of the column, as
  *    in the design: field lines span its full width and the button sits in
  *    the bottom right corner.
+ * 8. Small screens: the newsletter fills at least the whole viewport, and
+ *    the summary and the information at least half of it each. They are
+ *    minimums: a part grows if its content needs more room. From lg the
+ *    three columns share the footer's height instead.
  */
 
 .c-footer {
@@ -39,7 +44,12 @@
 .c-footer__newsletter {
   display: flex;
   flex-direction: column;
+  min-block-size: 50svh; /* [1] [8] */
   padding-block-start: variables.$spacing-footer; /* [7] */
+
+  @media (min-width: variables.$breakpoint-lg) {
+    min-block-size: auto; /* [8] */
+  }
 }
 
 .c-footer__title {
@@ -53,11 +63,16 @@
 }
 
 .c-footer__summary {
+  min-block-size: 50svh; /* [1] [8] */
   padding: variables.$spacing-footer;
   margin: 0;
   font-size: variables.$font-size-xl;
   color: variables.$color-text-primary; /* [3] */
   background-color: variables.$color-background-muted;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    min-block-size: auto; /* [8] */
+  }
 }
 
 .c-footer__info {
@@ -68,12 +83,17 @@
     "legal legal";
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr auto;
+  min-block-size: 50svh; /* [1] [8] */
   padding: variables.$spacing-footer;
   color: variables.$color-text-inverse; /* [3] */
   background-color: variables.$color-background-inverse;
 
   :focus-visible {
     outline-color: variables.$color-focus-on-dark; /* [4] */
+  }
+
+  @media (min-width: variables.$breakpoint-lg) {
+    min-block-size: auto; /* [8] */
   }
 }
 

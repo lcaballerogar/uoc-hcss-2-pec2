@@ -63,11 +63,20 @@
   background-color: variables.$color-background-primary; /* [5] */
 
   &:has([inert]) {
+    visibility: hidden; /* [15] */
     background-color: transparent; /* [5] */
+    opacity: 0; /* [15] */
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: background-color 0.2s; /* [7] */
+    transition: background-color 0.2s, opacity 0.2s, visibility 0.2s; /* [7] */
+  }
+
+  @media (min-width: variables.$breakpoint-lg) {
+    &:has([inert]) {
+      visibility: visible; /* [15] */
+      opacity: 1; /* [15] */
+    }
   }
 }
 
