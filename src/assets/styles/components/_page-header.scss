@@ -5,19 +5,22 @@
 @use "../settings/variables";
 
 /**
- * Page title and optional intro. From the lg breakpoint they use the same
- * three columns as the speaker grid, so the intro lines up with the second
- * column of cards.
+ * Page title and optional intro.
+ *
+ * Mobile first: a single column, with the same gap as the speaker grid
+ * between the title and the intro. From the lg breakpoint they use the same
+ * three columns as the speaker grid: the title in the first column and the
+ * intro in the last one, so it lines up with the third column of cards.
  */
 
 .c-page-header {
+  display: grid;
+  gap: variables.$spacing-grid-gap;
+  align-items: baseline;
   margin-block-end: variables.$spacing-6;
 
   @media (min-width: variables.$breakpoint-lg) {
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: variables.$spacing-grid-gap;
-    align-items: last baseline;
   }
 }
 
@@ -27,4 +30,8 @@
 
 .c-page-header__intro {
   margin-block-end: 0;
+
+  @media (min-width: variables.$breakpoint-lg) {
+    grid-column: -2 / -1;
+  }
 }
