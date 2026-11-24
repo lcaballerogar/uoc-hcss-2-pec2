@@ -14,7 +14,8 @@
  * 2. isolation creates a stacking context, so the photo (z-index -1) stays
  *    behind the text but in front of the page background.
  * 3. Fallback, and layout for narrow posters: the blocks stack in source
- *    order, each as wide as its content.
+ *    order, each as wide as its content. Font sizes are the small-screen
+ *    ones; the wide poster sets larger sizes inside its container query.
  * 4. @supports: the modular grid only applies where CSS Grid is supported.
  *    12 columns like the rest of the site, and 12 rows that share the height
  *    of the viewport.
@@ -26,7 +27,9 @@
  *    viewport height, so the line above it stays below the header. As an
  *    image, its size does not change while the fonts load.
  * 7. The links reach the right edge of the viewport.
- * 8. Arrow icon (Remix Icon) as a CSS mask, in the text color.
+ * 8. Arrow icon (Remix Icon) as a CSS mask, in the text color. The arrow
+ *    sits at the right end of the link; the link's padding keeps it as far
+ *    from the edge of the viewport as the page margin.
  * 9. On wide screens the poster fills the whole viewport (100svh), starting
  *    at the top of the page behind the sticky header, as in the design.
  *    svh is the height with the browser bars visible, so the poster never
@@ -34,6 +37,17 @@
  *    so the 12 rows always share it equally. The negative margin is a media
  *    query because an element cannot query its own container; the poster is
  *    as wide as the viewport, so both conditions match.
+ * 10. Narrow posters: a second container query, for the range the grid
+ *     does not cover (the two conditions never match at once), so these
+ *     adjustments do not leak into the 12 × 12 grid.
+ * 11. Narrow posters fill at least the viewport below the header. The auto
+ *     margins share the free space: half above the title and half above
+ *     the links, which sit at the bottom of the screen.
+ * 12. Narrow posters follow a 6-column grid in the design. The links start
+ *     at the second column: one column plus one gap, worked out from the
+ *     width of the poster (100cqi, the container's inline size) minus the
+ *     side padding and the five gaps. Like the prize, they reach the right
+ *     edge of the viewport.
  */
 
 .c-poster {
@@ -77,7 +91,7 @@
 
 .c-poster__eyebrow {
   margin: 0;
-  font-size: variables.$font-size-xl;
+  font-size: variables.$font-size-m; /* [3] */
   color: variables.$color-text-primary;
 }
 
@@ -97,7 +111,7 @@
 
 .c-poster__dates {
   padding: variables.$spacing-poster-box;
-  font-size: variables.$font-size-3xl;
+  font-size: variables.$font-size-xl; /* [3] */
   line-height: variables.$line-height-tight;
   color: variables.$color-text-inverse;
   background-color: variables.$color-poster-dates;
@@ -107,7 +121,7 @@
   display: flex;
   flex-direction: column;
   padding: variables.$spacing-poster-box;
-  font-size: variables.$font-size-xl;
+  font-size: variables.$font-size-m; /* [3] */
   color: variables.$color-text-inverse;
   background-color: variables.$color-background-inverse;
 }
@@ -119,14 +133,14 @@
 
 .c-poster__venue {
   padding: variables.$spacing-poster-box;
-  font-size: variables.$font-size-xl;
+  font-size: variables.$font-size-m; /* [3] */
   color: variables.$color-text-primary;
   background-color: variables.$color-poster-venue;
 }
 
 .c-poster__intro {
   padding: variables.$spacing-poster-box;
-  font-size: variables.$font-size-l;
+  font-size: variables.$font-size-s; /* [3] */
   color: variables.$color-text-primary;
   background-color: variables.$color-background-primary;
 }
@@ -141,8 +155,9 @@
   display: flex;
   gap: variables.$spacing-2;
   align-items: center;
+  justify-content: space-between; /* [8] */
   padding: variables.$spacing-poster-box;
-  font-size: variables.$font-size-l;
+  font-size: variables.$font-size-s; /* [3] */
   color: variables.$color-text-primary;
   text-decoration: none;
 
@@ -186,15 +201,45 @@
 
 .c-poster__free {
   padding: variables.$spacing-poster-box;
-  font-size: variables.$font-size-l;
+  font-size: variables.$font-size-m; /* [3] */
   color: variables.$color-text-primary;
   background-color: variables.$color-poster-free;
 }
 
 .c-poster__prize {
   padding: variables.$spacing-poster-box;
+  font-size: variables.$font-size-xs; /* [3] */
   color: variables.$color-text-primary;
   background-color: variables.$color-background-primary;
+}
+
+@container poster (width < 62rem) { /* [10] */
+  .c-poster__grid {
+    min-block-size: calc(100svh - #{variables.$size-header}); /* [11] */
+  }
+
+  .c-poster__heading,
+  .c-poster__links {
+    margin-block-start: auto; /* [11] */
+  }
+
+  .c-poster__dates {
+    align-self: flex-end;
+  }
+
+  .c-poster__venue,
+  .c-poster__intro,
+  .c-poster__callouts,
+  .c-poster__prize {
+    align-self: stretch;
+  }
+
+  .c-poster__links { /* [12] */
+    align-self: stretch;
+    margin-inline:
+      calc((100cqi - 2 * #{variables.$spacing-page-inline} - 5 * #{variables.$spacing-layout-gap}) / 6 + #{variables.$spacing-layout-gap})
+      calc(-1 * #{variables.$spacing-page-inline});
+  }
 }
 
 @supports (display: grid) { /* [4] */
@@ -212,23 +257,43 @@
       align-self: end;
     }
 
+    .c-poster__eyebrow {
+      font-size: variables.$font-size-xl; /* [3] */
+    }
+
     .c-poster__dates {
       grid-area: 4 / 8 / 5 / 12; /* [5] */
       justify-self: start;
+      font-size: variables.$font-size-3xl; /* [3] */
     }
 
     .c-poster__subtitle {
       grid-area: 5 / 2 / 6 / 6;
       justify-self: start;
+      font-size: variables.$font-size-xl; /* [3] */
     }
 
     .c-poster__venue {
       grid-area: 6 / 6 / 7 / 11;
       justify-self: start;
+      font-size: variables.$font-size-xl; /* [3] */
     }
 
     .c-poster__intro {
       grid-area: 8 / 2 / 10 / 7;
+      font-size: variables.$font-size-l; /* [3] */
+    }
+
+    .c-poster__callouts {
+      grid-area: 11 / 3 / 13 / 8;
+    }
+
+    .c-poster__free {
+      font-size: variables.$font-size-l; /* [3] */
+    }
+
+    .c-poster__prize {
+      font-size: variables.$font-size-s; /* [3] */
     }
 
     .c-poster__links {
@@ -236,8 +301,8 @@
       margin-inline-end: calc(-1 * variables.$spacing-page-inline); /* [7] */
     }
 
-    .c-poster__callouts {
-      grid-area: 11 / 3 / 13 / 8;
+    .c-poster__link {
+      font-size: variables.$font-size-m; /* [3] */
     }
   }
 }
