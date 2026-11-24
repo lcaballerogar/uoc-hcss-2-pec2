@@ -10,7 +10,15 @@
  * 1. The list keeps its order for assistive tech (newest first); the
  *    numbers are only hidden visually.
  * 2. Headlines use the serif family, like every headline on the site.
+ * 3. The aside is a size container named "latest". The list depends on
+ *    the width of its own column, not on the viewport: one column in the
+ *    narrow sidebar on desktop and on phones, two columns when the aside
+ *    spans the whole page on medium screens, such as tablets.
  */
+
+.c-latest {
+  container: latest / inline-size; /* [3] */
+}
 
 .c-latest__title {
   margin-block-end: variables.$spacing-4;
@@ -54,4 +62,11 @@
   margin: 0;
   font-size: variables.$font-size-xs;
   color: variables.$color-text-secondary-on-muted;
+}
+
+@container latest (width >= 36rem) { /* [3] */
+  .c-latest__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
