@@ -162,6 +162,7 @@ $spacing-poster-box: $spacing-3;
 $border-divider: $border-width-thick solid $color-text-primary;
 
 // Sizes
+$size-page-max: 90rem;                   // 1440px, the width of the design
 $size-control-min-height: $size-10;
 $size-header: $size-control-min-height;  // the header is as tall as its controls
 $size-table-row-min-height: 7.5rem;      // 120px

@@ -11,8 +11,10 @@
  */
 
 .o-page {
+  max-inline-size: variables.$size-page-max;
   padding-block: variables.$spacing-6;
   padding-inline: variables.$spacing-page-inline;
+  margin-inline: auto;
 
   @media (min-width: variables.$breakpoint-lg) {
     padding-block: variables.$spacing-page-top;

@@ -74,7 +74,9 @@
   flex-direction: column;
   gap: variables.$spacing-layout-gap;
   align-items: flex-start;
+  max-inline-size: variables.$size-page-max;
   padding: variables.$spacing-page-inline;
+  margin-inline: auto;
 }
 
 .c-poster__grid > * {

@@ -12,6 +12,11 @@
  *    (subgrid), so each section starts on a grid column, as in the design:
  *    "Further info" on the first three and "About the author" on the next
  *    three.
+  * 2. Below lg, the box has as many columns as fit at a minimum of 16rem
+ *    each: one on phones and two when it spans a wider screen, such as a
+ *    tablet. auto-fit decides it from the box's own width, with no media
+ *    or container query. min() keeps a single column from overflowing
+ *    boxes narrower than 16rem.
  */
 
 .c-article-info {
